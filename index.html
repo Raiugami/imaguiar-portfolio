@@ -247,6 +247,8 @@ nav a:hover{color:var(--txt)}
 .carta:not(.topo){pointer-events:none}
 .carta:not(.topo) .info,.carta:not(.topo) .thumb{filter:brightness(.7)}
 .carta.topo{cursor:grab}.carta.topo.arrasta{cursor:grabbing;transition:none}
+.deck:focus-visible{outline:2px solid var(--cyan);outline-offset:8px;border-radius:18px}
+.deck.teclado .carta{transition:opacity .12s ease-out}
 .deck-dica{text-align:center;color:var(--muted);font-size:.82rem;margin-top:14px}
 @media(max-width:860px){.deck{width:calc(100% - 44px)}}
 
@@ -627,7 +629,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
       <div><span class="tag">// sites para clientes</span><h2>Sites que <span class="grad">criei</span></h2></div>
       <div class="car-ctrl"><button id="carPrev" aria-label="Anterior">←</button><button id="carNext" aria-label="Próximo">→</button></div>
     </div>
-    <div class="deck reveal" id="deck">
+    <div class="deck reveal" id="deck" tabindex="0" role="region" aria-roledescription="carrossel" aria-label="Sites que criei">
       <article class="proj carta">
         <div class="thumb">
           <div class="barra"><i></i><i></i><i></i><em>isabella.imaguiar.com.br</em></div>
@@ -653,7 +655,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
         </div>
       </article>
     </div>
-    <p class="deck-dica">Arraste a carta, use as setas ou toque nas bolinhas para ver o próximo site.</p>
+    <p class="deck-dica">Arraste a carta, toque nas bolinhas ou, com o baralho em foco, use as setas do teclado.</p>
     <div class="car-dots" id="carDots"></div>
   </div>
 </section>
@@ -877,8 +879,18 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
       if (dir < 0) sai(cartas[cur], -1);
       else { cur = (cur - 1 + n) % n; aplica(); }
     };
-    next.onclick = () => avanca(-1); prev.onclick = () => avanca(1);
-    addEventListener("keydown", e => { if (e.key === "ArrowRight") avanca(-1); if (e.key === "ArrowLeft") avanca(1); });
+    // teclado: troca por crossfade curto, sem arremesso
+    const troca = d => {
+      if (busy || n < 2) return;
+      cur = (cur + d + n) % n; deck.classList.add("teclado"); aplica();
+      const t = cartas[cur]; t.style.opacity = 0; void t.offsetWidth; t.style.opacity = 1;
+      setTimeout(() => deck.classList.remove("teclado"), 160);
+    };
+    next.onclick = e => e.detail === 0 ? troca(1) : avanca(-1); prev.onclick = e => e.detail === 0 ? troca(-1) : avanca(1);
+    deck.addEventListener("keydown", e => {
+      if (e.key === "ArrowRight") { e.preventDefault(); troca(1); }
+      if (e.key === "ArrowLeft") { e.preventDefault(); troca(-1); }
+    });
 
     let x0 = null, dx = 0, moveu = false, pid = null;
     deck.addEventListener("pointerdown", e => { const c = cartas[cur]; if (busy || !c.contains(e.target)) return; x0 = e.clientX; dx = 0; moveu = false; pid = e.pointerId; });
