@@ -52,6 +52,10 @@ nav a:hover{color:var(--txt)}
 .btn-line{border-color:var(--line);background:rgba(255,255,255,.03)}
 .btn-line:hover{border-color:var(--violet);background:rgba(124,92,255,.12)}
 .btn:active,.car-ctrl button:active,.tl-filtros button:active{transform:scale(.97)}
+.pausa-fora,.pausa-fora *,.pausa-fora *::before,.pausa-fora *::after,html[data-pausa] *,html[data-pausa] *::before,html[data-pausa] *::after{animation-play-state:paused!important}
+.carta:not(.topo) .rola iframe{animation-play-state:paused}
+.pausa{margin-top:14px;background:none;border:1px solid var(--line);color:var(--muted);border-radius:99px;padding:6px 16px;font:inherit;font-size:.82rem;cursor:pointer;transition:color .2s var(--ease),border-color .2s var(--ease)}
+.pausa:hover{color:var(--txt);border-color:var(--violet)}
 .menu{display:none;background:none;border:0;color:var(--txt);font-size:1.6rem;cursor:pointer}
 
 /* hero */
@@ -671,7 +675,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 </section>
 </main>
 
-<footer><div class="wrap">© <span id="year"></span> Gabriel Aguiar · imaguiar.com.br</div></footer>
+<footer><div class="wrap">© <span id="year"></span> Gabriel Aguiar · imaguiar.com.br<br><button class="pausa" id="btnPausa" type="button" aria-pressed="false">Pausar animações</button></div></footer>
 
 <script>
   // ====== CONFIGURE AQUI ======
@@ -811,12 +815,28 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
     },
   };
   const reduzido = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  let pausado = false;
+  const visivel = new WeakMap();
+  const recalcula = el => vivo.set(el, !!visivel.get(el) && !reduzido && !pausado);
+  const btnPausa = document.getElementById("btnPausa");
+  if (reduzido) btnPausa.hidden = true;
+  btnPausa.onclick = () => {
+    pausado = !pausado;
+    document.documentElement.toggleAttribute("data-pausa", pausado);
+    btnPausa.setAttribute("aria-pressed", pausado);
+    btnPausa.textContent = pausado ? "Retomar animações" : "Pausar animações";
+    document.querySelectorAll("[data-demo]").forEach(recalcula);
+  };
   const ioDemo = new IntersectionObserver(es => es.forEach(e => {
     const el = e.target, k = el.dataset.demo;
-    vivo.set(el, e.isIntersecting && !reduzido);
+    visivel.set(el, e.isIntersecting); recalcula(el);
     if (e.isIntersecting && !el.dataset.rodando) { el.dataset.rodando = "1"; (async () => { while (true) { await demos[k](el, () => vivo.get(el)); await sleep(400); } })(); }
   }), { threshold: .25 });
   document.querySelectorAll("[data-demo]").forEach(el => reduzido ? estaticos[el.dataset.demo](el) : ioDemo.observe(el));
+
+  // loops CSS só rodam quando visíveis
+  const ioFora = new IntersectionObserver(es => es.forEach(e => e.target.classList.toggle("pausa-fora", !e.isIntersecting)), { rootMargin: "80px" });
+  document.querySelectorAll(".hero,.rola,.dc,.marco.atual").forEach(el => ioFora.observe(el));
 
   // ====== baralho de sites ======
   (() => {
