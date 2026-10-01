@@ -113,6 +113,77 @@ nav a:hover{color:var(--txt)}
 .proj-wide{grid-column:1/-1;background:linear-gradient(135deg,rgba(124,92,255,.14),rgba(34,211,238,.06)),var(--card);border-color:rgba(124,92,255,.35)}
 .proj-wide .info{padding:34px}
 .proj-wide .info p{max-width:760px}
+
+/* ===== demonstracoes animadas ===== */
+.thumb.dark{background:#0d0d14}
+.ilus{position:absolute;top:7px;right:12px;z-index:3;font:400 .6rem 'JetBrains Mono',monospace;color:rgba(255,255,255,.55);letter-spacing:.04em}
+.demo{color:#e8e8f0;font-family:'Inter',sans-serif;font-size:11px;line-height:1.35}
+.demo small{opacity:.65;font-size:.9em}
+.demo b{font-weight:600}
+.rola iframe{animation:rolar 28s ease-in-out infinite alternate}
+@keyframes rolar{from{transform:translateY(0) scale(var(--s,.45))}to{transform:translateY(-1500px) scale(var(--s,.45))}}
+/* financeiro */
+.fin{background:#111827;padding:14px 16px;display:grid;grid-template-rows:auto 1fr auto;gap:10px}
+.fin-top{display:flex;justify-content:space-between;align-items:flex-start}
+.fin-top b{font-size:1.9em;display:block;color:#fff}
+.fin-tabs{display:flex;gap:4px}.fin-tabs i{font-style:normal;padding:3px 9px;border-radius:99px;background:#1f2937;color:#aab4c4}.fin-tabs i.on{background:#3366cc;color:#fff}
+.fin-bars{display:flex;align-items:flex-end;gap:8px;padding:0 4px;border-bottom:1px solid #2a3547;min-height:60px}
+.fin-bars i{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(#3366cc,#4a7fe0);height:4%;transition:height .8s cubic-bezier(.2,.8,.2,1)}
+.fin-bars i.g{background:linear-gradient(#159957,#27c07a)}
+.fin-list{display:grid;gap:5px;min-height:62px;align-content:end}
+.fin-row{display:flex;justify-content:space-between;padding:5px 9px;border-radius:8px;background:#1f2937;opacity:0;transform:translateY(8px);transition:.45s}
+.fin-row.in{opacity:1;transform:none}.fin-row .v.p{color:#34d399}.fin-row .v.n{color:#f87171}
+/* protocolos */
+.prot{background:#f4f5f7;color:#333;padding:12px 14px;display:grid;grid-template-rows:auto auto 1fr auto;gap:8px}
+.prot small{opacity:.7}
+.prot-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.prot-kpis>div{background:#fff;border:1px solid #e2e4e7;border-radius:8px;padding:6px 9px}.prot-kpis b{display:block;font-size:1.5em;color:#b8325a}
+.prot-meta{height:6px;border-radius:9px;background:#e2e4e7;overflow:hidden}.prot-meta span{display:block;height:100%;width:0;background:linear-gradient(90deg,#d4547d,#b8325a);transition:width .5s}
+.prot-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
+.prot-cal i{font-style:normal;text-align:center;padding:3px 0;border-radius:5px;background:#fff;border:1px solid #e2e4e7;color:#999;transition:.35s}
+.prot-cal i.g{background:#e3f4ea;color:#208b59;border-color:#b6dfc8}.prot-cal i.y{background:#fff6d9;color:#a07800;border-color:#ecd98c}.prot-cal i.r{background:#fde8ec;color:#b8325a;border-color:#f5c2cb}
+.prot-line{width:100%;height:26px}.prot-line path{fill:none;stroke:#b8325a;stroke-width:2;stroke-dasharray:260;stroke-dashoffset:260;transition:stroke-dashoffset 1.6s ease}
+.prot-line.on path{stroke-dashoffset:0}
+/* meus dias */
+.dias{background:linear-gradient(160deg,#10231b,#1a1214);padding:14px 18px;display:grid;grid-template-rows:auto 1fr;gap:10px}
+.dias-top{display:flex;justify-content:space-between;align-items:center;font-size:1.25em}.dias-n{color:#6ee7a0;font-size:1.2em}
+.dias-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:5px;align-content:start}
+.dias-cal i{font-style:normal;text-align:center;padding:4px 0;border-radius:6px;background:rgba(255,255,255,.05);color:#9aa;transition:.35s}
+.dias-cal i.on{background:#1f9d62;color:#fff;box-shadow:0 0 0 1px #6ee7a0 inset;transform:scale(1.05)}
+.dias-cal i.fim{opacity:.35}
+/* discordo */
+.proj .dc-thumb{aspect-ratio:auto;height:330px;background:#0b0a12;border-bottom:1px solid var(--line)}
+.dc{background:#0b0a12;display:grid;grid-template-columns:50px 150px 1fr 190px;font-size:11.5px}
+.dc-servers{background:#07060d;display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 0}
+.dc-servers i{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:600;background:#1b1a2b;color:#c9c6e8;transition:.3s}
+.dc-servers i.on{background:#6f5fef;color:#fff;border-radius:11px}.dc-servers i.add{color:#3ddc84}
+.dc-chan{background:#11101b;padding:12px 10px;display:flex;flex-direction:column;gap:3px;position:relative}
+.dc-chan b{font-size:.85em;text-transform:uppercase;letter-spacing:.06em;opacity:.55;margin:8px 0 3px}.dc-chan b:first-child{margin-top:0;opacity:1;text-transform:none;font-size:1.05em}
+.dc-chan p{padding:4px 8px;border-radius:6px;color:#a3a1b8}.dc-chan p.on{background:rgba(111,95,239,.22);color:#fff}.dc-chan p.vz.on{background:rgba(61,220,132,.15);color:#6ee7a0}
+.dc-me{margin-top:auto;display:flex;gap:8px;align-items:center;padding:8px;border-radius:8px;background:#0b0a12}.dc-me i{width:26px;height:26px;border-radius:50%;background:#6f5fef;position:relative}.dc-me i::after{content:"";position:absolute;right:-1px;bottom:-1px;width:9px;height:9px;border-radius:50%;background:#3ddc84;border:2px solid #0b0a12}
+.dc-chat{display:grid;grid-template-rows:auto 1fr auto auto;min-width:0;border-left:1px solid #1d1b2e;border-right:1px solid #1d1b2e}
+.dc-head{padding:10px 14px;border-bottom:1px solid #1d1b2e;font-weight:600}
+.dc-msgs{padding:10px 14px;display:flex;flex-direction:column;justify-content:flex-end;gap:9px;overflow:hidden}
+.dc-msg{display:flex;gap:9px;opacity:0;transform:translateY(10px);transition:.4s}.dc-msg.in{opacity:1;transform:none}
+.dc-msg i{flex:none;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:600;color:#0b0a12;background:var(--c)}
+.dc-msg b{color:var(--c)}.dc-msg span{display:block;color:#d8d6ea}
+.dc-typing{height:16px;padding:0 14px;color:#a3a1b8;font-size:.9em}
+.dc-typing.on::after{content:"";display:inline-block;width:5px;height:5px;margin-left:5px;border-radius:50%;background:#a78bfa;animation:pisca 1s infinite}
+@keyframes pisca{50%{opacity:.2}}
+.dc-input{margin:6px 14px 12px;padding:9px 12px;border-radius:9px;background:#1a1928;color:#8b89a3}
+.dc-voice{background:#11101b;padding:12px 12px;display:flex;flex-direction:column;gap:7px}
+.dc-peer{display:flex;align-items:center;gap:9px}.dc-peer i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:600;color:#0b0a12;background:var(--c);transition:box-shadow .25s}
+.dc-peer.fala i{box-shadow:0 0 0 2px #0b0a12,0 0 0 4px #3ddc84}
+.dc-share{margin-top:auto;border:1px solid #2a2840;border-radius:9px;background:#0b0a12;padding:7px}
+.dc-code{display:grid;gap:4px;margin-top:6px}.dc-code span{height:6px;border-radius:3px;background:linear-gradient(90deg,#6f5fef,#5ee7ff);width:20%;animation:digita 3.2s ease-in-out infinite}
+.dc-code span:nth-child(2){animation-delay:.3s}.dc-code span:nth-child(3){animation-delay:.7s}.dc-code span:nth-child(4){animation-delay:1.1s}.dc-code span:nth-child(5){animation-delay:1.5s}.dc-code span:nth-child(6){animation-delay:1.9s}
+@keyframes digita{0%{width:8%}50%{width:88%}100%{width:8%}}
+@media(max-width:860px){
+  .dc{grid-template-columns:44px 1fr}.dc-chan,.dc-voice{display:none}
+  .proj .dc-thumb{height:300px}
+}
+@media(prefers-reduced-motion:reduce){.rola iframe{animation:none}.dc-code span{animation:none;width:60%}}
+
 /* sobre */
 .sobre{max-width:720px;display:grid;gap:18px;color:var(--muted);font-size:1.05rem}
 .sobre p:first-child{color:var(--txt)}
@@ -245,9 +316,34 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
   <div class="wrap">
     <span class="tag reveal">// projetos</span>
     <h2 class="reveal">Alguns <span class="grad">projetos</span></h2>
-    <p class="sub reveal">Projetos pessoais e sites que criei. As prévias abaixo são as aplicações rodando ao vivo.</p>
+    <p class="sub reveal">Projetos pessoais e sites que criei. As animações são demonstrações ilustrativas de como cada app é usado, e os links abrem as aplicações de verdade.</p>
     <div class="grid2">
       <article class="proj proj-wide reveal">
+        <div class="thumb dc-thumb"><div class="barra"><i></i><i></i><i></i><em>discordo</em></div><span class="ilus">demonstração ilustrativa</span>
+          <div class="tela demo dc" data-demo="dc">
+            <div class="dc-servers"><i class="on">D</i><i>A</i><i>J</i><i class="add">+</i></div>
+            <div class="dc-chan">
+              <b>Meu grupo</b>
+              <p># geral</p><p class="on"># conversa</p><p># jogos</p>
+              <b>Voz</b>
+              <p class="vz">🔊 Sala 1</p><p class="vz">🔊 Sala 2</p>
+              <div class="dc-me"><i></i><span>Gabriel<br><small>Disponível</small></span></div>
+            </div>
+            <div class="dc-chat">
+              <div class="dc-head"># conversa</div>
+              <div class="dc-msgs"></div>
+              <div class="dc-typing"></div>
+              <div class="dc-input">Mensagem em #conversa</div>
+            </div>
+            <div class="dc-voice">
+              <b>🔊 Sala 1</b>
+              <div class="dc-peer"><i style="--c:#6f5fef">G</i><span>Gabriel</span></div>
+              <div class="dc-peer"><i style="--c:#ff6bd6">A</i><span>Ana</span></div>
+              <div class="dc-peer"><i style="--c:#3ddc84">B</i><span>Bruno</span></div>
+              <div class="dc-share"><small>Tela de Gabriel</small><div class="dc-code"><span></span><span></span><span></span><span></span><span></span><span></span></div></div>
+            </div>
+          </div>
+        </div>
         <div class="info">
           <span class="tag">// destaque</span>
           <h3>Discordo</h3>
@@ -257,9 +353,12 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
         </div>
       </article>
       <article class="proj reveal">
-        <div class="thumb">
-          <div class="barra"><i></i><i></i><i></i><em>raiugami.github.io/organizacao-financeira</em></div>
-          <div class="tela"><iframe src="https://raiugami.github.io/organizacao-financeira/" title="Prévia de Organização financeira" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+        <div class="thumb dark"><div class="barra"><i></i><i></i><i></i><em>organizacao-financeira</em></div><span class="ilus">demonstração ilustrativa</span>
+          <div class="tela demo fin" data-demo="fin">
+            <div class="fin-top"><div><small>Saldo do mês</small><b class="fin-saldo">R$ 0,00</b></div><div class="fin-tabs"><i class="on">Mês</i><i>Ano</i><i>Cartão</i></div></div>
+            <div class="fin-bars"></div>
+            <div class="fin-list"></div>
+          </div>
         </div>
         <div class="info">
           <h3>Organização financeira</h3>
@@ -269,9 +368,13 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
         </div>
       </article>
       <article class="proj reveal">
-        <div class="thumb">
-          <div class="barra"><i></i><i></i><i></i><em>raiugami.github.io/relatorio-protocolos</em></div>
-          <div class="tela"><iframe src="https://raiugami.github.io/relatorio-protocolos/" title="Prévia de Relatório de protocolos" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+        <div class="thumb dark"><div class="barra"><i></i><i></i><i></i><em>relatorio-protocolos</em></div><span class="ilus">demonstração ilustrativa</span>
+          <div class="tela demo prot" data-demo="prot">
+            <div class="prot-kpis"><div><small>Total no mês</small><b class="k1">0</b></div><div><small>Média por hora</small><b class="k2">0,0</b></div><div><small>Meta</small><b class="k3">0%</b></div></div>
+            <div class="prot-meta"><span></span></div>
+            <div class="prot-cal"></div>
+            <svg class="prot-line" viewBox="0 0 200 40" preserveAspectRatio="none"><path d="M0 34 L25 28 L50 30 L75 20 L100 22 L125 12 L150 15 L175 6 L200 8"/></svg>
+          </div>
         </div>
         <div class="info">
           <h3>Relatório de protocolos</h3>
@@ -281,9 +384,11 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
         </div>
       </article>
       <article class="proj reveal">
-        <div class="thumb">
-          <div class="barra"><i></i><i></i><i></i><em>raiugami.github.io/meus-dias</em></div>
-          <div class="tela"><iframe src="https://raiugami.github.io/meus-dias/" title="Prévia de Meus dias" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+        <div class="thumb dark"><div class="barra"><i></i><i></i><i></i><em>meus-dias</em></div><span class="ilus">demonstração ilustrativa</span>
+          <div class="tela demo dias" data-demo="dias">
+            <div class="dias-top"><b>Outubro</b><span>Diárias: <b class="dias-n">0</b></span></div>
+            <div class="dias-cal"></div>
+          </div>
         </div>
         <div class="info">
           <h3>Meus dias</h3>
@@ -295,7 +400,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
       <article class="proj reveal">
         <div class="thumb">
           <div class="barra"><i></i><i></i><i></i><em>isabella.imaguiar.com.br</em></div>
-          <div class="tela"><iframe src="https://isabella.imaguiar.com.br/" title="Prévia de Site: Isabella Garcia | Estética" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+          <div class="tela rola"><iframe style="height:3200px" src="https://isabella.imaguiar.com.br/" title="Prévia de Site: Isabella Garcia | Estética" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
         </div>
         <div class="info">
           <h3>Site: Isabella Garcia | Estética</h3>
@@ -307,7 +412,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
       <article class="proj reveal">
         <div class="thumb">
           <div class="barra"><i></i><i></i><i></i><em>patricia.imaguiar.com.br</em></div>
-          <div class="tela"><iframe src="https://patricia.imaguiar.com.br/" title="Prévia de Site: Harmonia das Orelhas" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+          <div class="tela rola"><iframe style="height:3200px" src="https://patricia.imaguiar.com.br/" title="Prévia de Site: Harmonia das Orelhas" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
         </div>
         <div class="info">
           <h3>Site: Harmonia das Orelhas</h3>
@@ -370,9 +475,94 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 
   const escalar = () => document.querySelectorAll(".tela").forEach(t => {
     const f = t.querySelector("iframe");
-    if (f) f.style.transform = "scale(" + (t.clientWidth / 1280) + ")";
+    if (f) { const s = t.clientWidth / 1280; f.style.transform = "scale(" + s + ")"; f.style.setProperty("--s", s); }
   });
   escalar(); addEventListener("resize", escalar);
+
+  // ====== demonstracoes animadas (ilustrativas) ======
+  const sleep = ms => new Promise(r => setTimeout(r, ms));
+  const vivo = new WeakMap();
+  const tween = (el, a, b, ms, fmt) => new Promise(res => {
+    const t0 = performance.now();
+    const f = t => { const k = Math.min(1, (t - t0) / ms); el.textContent = fmt(a + (b - a) * (1 - Math.pow(1 - k, 3))); k < 1 ? requestAnimationFrame(f) : res(); };
+    requestAnimationFrame(f);
+  });
+  const brl = v => "R$ " + v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  const demos = {
+    async fin(el, on) {
+      const saldo = el.querySelector(".fin-saldo"), bars = el.querySelector(".fin-bars"), list = el.querySelector(".fin-list");
+      const alturas = [30, 52, 40, 70, 58, 86], rows = [["Salário", "+ R$ 5.200,00", "p"], ["Aluguel", "− R$ 1.450,00", "n"], ["Mercado", "− R$ 380,50", "n"], ["Caixinha viagem", "+ R$ 450,00", "p"]];
+      while (on()) {
+        bars.innerHTML = alturas.map((_, i) => '<i class="' + (i % 2 ? "g" : "") + '"></i>').join(""); list.innerHTML = ""; saldo.textContent = brl(0);
+        await sleep(500);
+        const bs = [...bars.children];
+        for (let i = 0; i < bs.length && on(); i++) { bs[i].style.height = alturas[i] + "%"; await sleep(160); }
+        tween(saldo, 0, 4819.5, 1800, brl);
+        for (const [n, v, c] of rows) {
+          if (!on()) break;
+          const r = document.createElement("div"); r.className = "fin-row"; r.innerHTML = "<span>" + n + '</span><span class="v ' + c + '">' + v + "</span>";
+          list.append(r); if (list.children.length > 3) list.firstChild.remove();
+          await sleep(30); r.classList.add("in"); await sleep(1100);
+        }
+        await sleep(2200);
+      }
+    },
+    async prot(el, on) {
+      const cal = el.querySelector(".prot-cal"), line = el.querySelector(".prot-line"), meta = el.querySelector(".prot-meta span");
+      const k1 = el.querySelector(".k1"), k2 = el.querySelector(".k2"), k3 = el.querySelector(".k3");
+      const cls = ["g", "g", "y", "g", "r", "g", "g"], vals = [42, 51, 38, 47, 29, 55, 49];
+      while (on()) {
+        cal.innerHTML = ""; for (let d = 1; d <= 21; d++) { const c = document.createElement("i"); c.textContent = d; cal.append(c); }
+        line.classList.remove("on"); meta.style.width = "0"; k1.textContent = "0"; k2.textContent = "0,0"; k3.textContent = "0%";
+        await sleep(600); line.classList.add("on");
+        let tot = 0;
+        for (let d = 0; d < 21 && on(); d++) {
+          const c = cal.children[d], v = vals[d % 7] + (d % 3) * 2; tot += v;
+          c.className = cls[d % 7]; c.textContent = v; k1.textContent = tot;
+          k2.textContent = (tot / (d + 1) / 8).toFixed(1).replace(".", ","); const m = Math.min(100, Math.round(tot / 10.5));
+          k3.textContent = m + "%"; meta.style.width = m + "%"; await sleep(230);
+        }
+        await sleep(2600);
+      }
+    },
+    async dias(el, on) {
+      const cal = el.querySelector(".dias-cal"), n = el.querySelector(".dias-n");
+      while (on()) {
+        cal.innerHTML = ""; n.textContent = "0";
+        for (let d = 1; d <= 28; d++) { const c = document.createElement("i"); c.textContent = d; if (d % 7 === 0 || d % 7 === 6) c.className = "fim"; cal.append(c); }
+        await sleep(600); let t = 0;
+        for (let d = 0; d < 28 && on(); d++) { const c = cal.children[d]; if (c.classList.contains("fim")) continue; await sleep(170); c.classList.add("on"); n.textContent = ++t; }
+        await sleep(2600);
+      }
+    },
+    async dc(el, on) {
+      const msgs = el.querySelector(".dc-msgs"), typing = el.querySelector(".dc-typing"), peers = [...el.querySelectorAll(".dc-peer")], vz = el.querySelector(".dc-chan p.vz");
+      const roteiro = [["Ana", "#ff6bd6", "Bora jogar hoje à noite? 🎮"], ["Bruno", "#3ddc84", "Bora! Já entro na sala de voz"], ["Gabriel", "#a78bfa", "Compartilhando a tela aqui, olha esse bug 👀"], ["Ana", "#ff6bd6", "kkk isso se resolve com um commit"], ["Bruno", "#3ddc84", "Subi a versão nova do app 🚀"]];
+      let fala = 0;
+      (async () => { while (on()) { peers.forEach((p, i) => p.classList.toggle("fala", i === fala)); fala = (fala + 1) % peers.length; vz.classList.toggle("on"); await sleep(1100); } })();
+      while (on()) {
+        msgs.innerHTML = "";
+        for (const [nome, cor, texto] of roteiro) {
+          if (!on()) break;
+          typing.textContent = nome + " está digitando"; typing.classList.add("on"); await sleep(1100);
+          typing.classList.remove("on"); typing.textContent = "";
+          const m = document.createElement("div"); m.className = "dc-msg"; m.style.setProperty("--c", cor);
+          m.innerHTML = "<i>" + nome[0] + "</i><div><b>" + nome + "</b><span>" + texto + "</span></div>";
+          msgs.append(m); while (msgs.children.length > 4) msgs.firstChild.remove();
+          await sleep(30); m.classList.add("in"); await sleep(1300);
+        }
+        await sleep(2400);
+      }
+    },
+  };
+  const reduzido = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const ioDemo = new IntersectionObserver(es => es.forEach(e => {
+    const el = e.target, k = el.dataset.demo;
+    vivo.set(el, e.isIntersecting && !reduzido);
+    if (e.isIntersecting && !el.dataset.rodando) { el.dataset.rodando = "1"; (async () => { while (true) { await demos[k](el, () => vivo.get(el)); await sleep(400); } })(); }
+  }), { threshold: .25 });
+  document.querySelectorAll("[data-demo]").forEach(el => ioDemo.observe(el));
 </script>
 </body>
 </html>
