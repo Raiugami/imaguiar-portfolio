@@ -245,6 +245,49 @@ nav a:hover{color:var(--txt)}
 .deck-dica{text-align:center;color:var(--muted);font-size:.82rem;margin-top:14px}
 @media(max-width:860px){.deck{width:calc(100% - 44px)}}
 
+
+/* linha do tempo interativa */
+.tl-filtros{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:46px}
+.tl-filtros button{padding:8px 18px;border-radius:99px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:var(--muted);font:500 .84rem 'Inter',sans-serif;cursor:pointer;transition:.25s}
+.tl-filtros button:hover{color:var(--txt);border-color:var(--violet)}
+.tl-filtros button.on{background:var(--grad);color:#07070b;border-color:transparent}
+.tl{position:relative;display:grid;gap:34px;padding:10px 0 20px}
+.tl-linha{position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--line)}
+.tl-linha i{display:block;width:100%;height:0;background:var(--grad);box-shadow:0 0 18px rgba(124,92,255,.8);transition:height .15s linear}
+.marco{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:start;transition:opacity .4s,transform .4s}
+.marco.esq .mcard{grid-column:1;margin-right:46px}.marco.dir .mcard{grid-column:2;margin-left:46px}
+.marco.oculto{display:none}
+.no{position:absolute;left:50%;top:26px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--bg);border:2px solid var(--line);z-index:2;transition:.4s}
+.marco.vivo .no{border-color:var(--violet);background:var(--violet);box-shadow:0 0 0 6px rgba(124,92,255,.2)}
+.marco.atual .no::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid #34d399;animation:onda 2s infinite}
+@keyframes onda{from{transform:scale(.6);opacity:1}to{transform:scale(1.5);opacity:0}}
+.ano{position:absolute;left:50%;top:-6px;transform:translateX(-50%);font:600 .72rem 'JetBrains Mono',monospace;color:var(--cyan);background:var(--bg);padding:0 8px;z-index:3;display:none}
+.mcard{border:1px solid var(--line);border-radius:var(--raio);background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.01));transition:.3s;overflow:hidden}
+.marco.vivo .mcard:hover,.marco.aberto .mcard{border-color:rgba(124,92,255,.5);box-shadow:0 20px 50px -30px rgba(124,92,255,.7)}
+.marco.conquista .mcard{border-color:rgba(250,204,21,.35);background:linear-gradient(160deg,rgba(250,204,21,.08),rgba(255,255,255,.01))}
+.marco.conquista.vivo .no{background:#facc15;border-color:#facc15;box-shadow:0 0 0 6px rgba(250,204,21,.2)}
+.marco.estudo .mquando{color:#f472b6}
+.mhead{all:unset;box-sizing:border-box;display:grid;gap:3px;width:100%;padding:22px 56px 22px 24px;cursor:pointer;position:relative}
+.mhead:focus-visible{outline:2px solid var(--cyan);outline-offset:-2px}
+.mquando{font:500 .76rem 'JetBrains Mono',monospace;color:var(--cyan)}
+.mhead strong{font:600 1.2rem 'Space Grotesk',sans-serif;letter-spacing:-.01em}
+.morg{color:var(--muted);font-size:.86rem}
+.mres{color:var(--muted);font-size:.9rem;margin-top:6px}
+.mmais{position:absolute;right:20px;top:22px;width:28px;height:28px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--line);color:var(--violet);font-size:1.1rem;transition:.3s}
+.marco.aberto .mmais{transform:rotate(45deg);background:var(--violet);color:#fff;border-color:var(--violet)}
+.mbody{display:grid;grid-template-rows:0fr;transition:grid-template-rows .4s ease}
+.mbody>div{overflow:hidden}
+.marco.aberto .mbody{grid-template-rows:1fr}
+.mbody ul{list-style:none;display:grid;gap:8px;padding:0 24px 8px;color:var(--muted);font-size:.9rem}
+.mbody li{padding-left:18px;position:relative}.mbody li::before{content:"";position:absolute;left:0;top:.7em;width:7px;height:2px;background:var(--violet)}
+.mbody .chips{padding:8px 24px 22px}
+@media(max-width:860px){
+  .tl-linha{left:14px}
+  .marco{grid-template-columns:1fr}
+  .marco.esq .mcard,.marco.dir .mcard{grid-column:1;margin:0 0 0 44px}
+  .no{left:14px;top:26px}
+}
+
 /* sobre */
 .sobre{max-width:720px;display:grid;gap:18px;color:var(--muted);font-size:1.05rem}
 .sobre p:first-child{color:var(--txt)}
@@ -361,48 +404,96 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
   <div class="wrap">
     <span class="tag reveal">// experiência</span>
     <h2 class="reveal">Minha <span class="grad">trajetória</span></h2>
-    <p class="sub reveal">De estagiário a Systems Engineer, sempre em tecnologia.</p>
-    <div class="timeline">
-      <div class="tl-item atual reveal">
-        <div class="tl-quando">jan. 2024 – atual</div>
-        <div class="tl-corpo">
-          <h3>System Engineer</h3>
-          <div class="tl-emp">Minsait · São Paulo · híbrido</div>
-          <ul><li>Atuação em sustentação de sistemas, garantindo disponibilidade e desempenho das soluções em produção.</li><li>Criação e otimização de scripts PL/SQL e monitoramento de bases Oracle.</li><li>Suporte N2: análise e resolução de incidentes e de causas-raízes para evitar recorrências, com ServiceNow.</li><li>Validações em implantações evolutivas e corretivas, com Scrum e Kanban no Jira.</li></ul>
-          <div class="chips"><span>Java 7/8</span><span>Groovy</span><span>Grails</span><span>Spring Boot</span><span>Oracle</span><span>PL/SQL</span><span>Jenkins</span><span>Grafana</span><span>Rundeck</span><span>Git Flow</span></div>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-quando">out. 2021 – fev. 2024</div>
-        <div class="tl-corpo">
-          <h3>Junior Systems Engineer (Trainee)</h3>
-          <div class="tl-emp">Minsait · São Paulo</div>
-          <ul><li>Início da carreira como programador no programa de jovens profissionais da Indra Minsait.</li><li>Testes automatizados com Robot Framework e gestão de atividades no Jira.</li></ul>
-          <div class="chips"><span>Robot Framework</span><span>Jira</span><span>Java</span></div>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-quando">jan. 2021 – set. 2021</div>
-        <div class="tl-corpo">
-          <h3>Service Desk Agent</h3>
-          <div class="tl-emp">Oakmont Group (Atento Brasil)</div>
-          <ul><li>Analista de suporte N2: atualização, configuração e manutenção das ferramentas essenciais da operação.</li></ul>
-          <div class="chips"><span>Suporte N2</span><span>Genesys</span><span>TeamViewer</span></div>
-        </div>
-      </div>
-      <div class="tl-item reveal">
-        <div class="tl-quando">abr. 2018 – abr. 2020</div>
-        <div class="tl-corpo">
-          <h3>Estagiário de TI</h3>
-          <div class="tl-emp">Mercedes-Benz do Brasil · São Bernardo do Campo</div>
-          <ul><li>Suporte técnico e desenvolvimento de soluções para Vendas e Pós-Vendas.</li><li>Acompanhamento de Change Management, automação de rotinas e integração de novas funcionalidades.</li></ul>
-          <div class="chips"><span>Suporte</span><span>Automação</span><span>Change Management</span></div>
-        </div>
-      </div>
+    <p class="sub reveal">Uma linha do tempo de verdade. Clique nos cards para ver os detalhes de cada fase.</p>
+    <div class="tl-filtros reveal" id="tlFiltros">
+      <button class="on" data-f="todos">Tudo</button><button data-f="trabalho">Trabalho</button><button data-f="estudo">Estudo</button><button data-f="conquista">Conquistas</button>
     </div>
-    <div class="formacao reveal">
-      <div class="ico">🎓</div>
-      <div><h3>Bacharelado em Sistemas de Informação</h3><p>Universidade Brasil · 2016 – 2020</p></div>
+    <div class="tl" id="tl">
+      <div class="tl-linha"><i id="tlFill"></i></div>
+      <div class="marco esq estudo" data-tipo="estudo">
+        <span class="no"></span>
+        <span class="ano">2016</span>
+        <article class="mcard">
+          <button class="mhead" aria-expanded="false">
+            <span class="mquando">2016 – 2020</span>
+            <strong>Bacharelado em Sistemas de Informação</strong>
+            <span class="morg">Universidade Brasil</span>
+            <span class="mres">Onde a base em tecnologia começou.</span>
+            <span class="mmais" aria-hidden="true">+</span>
+          </button>
+          <div class="mbody"><div><ul><li>Graduação em Sistemas de Informação, concluída em 2020.</li></ul></div></div>
+        </article>
+      </div>
+      <div class="marco dir trabalho" data-tipo="trabalho">
+        <span class="no"></span>
+        <span class="ano">2018</span>
+        <article class="mcard">
+          <button class="mhead" aria-expanded="false">
+            <span class="mquando">abr. 2018 – abr. 2020</span>
+            <strong>Estagiário de TI</strong>
+            <span class="morg">Mercedes-Benz do Brasil · São Bernardo do Campo</span>
+            <span class="mres">Primeiro contato com TI corporativa, em Vendas e Pós-Vendas.</span>
+            <span class="mmais" aria-hidden="true">+</span>
+          </button>
+          <div class="mbody"><div><ul><li>Suporte técnico e desenvolvimento de soluções para Vendas e Pós-Vendas.</li><li>Acompanhamento de Change Management, automação de rotinas e integração de novas funcionalidades.</li></ul><div class="chips"><span>Suporte</span><span>Automação</span><span>Change Management</span></div></div></div>
+        </article>
+      </div>
+      <div class="marco esq trabalho" data-tipo="trabalho">
+        <span class="no"></span>
+        <span class="ano">2021</span>
+        <article class="mcard">
+          <button class="mhead" aria-expanded="false">
+            <span class="mquando">jan. 2021 – set. 2021</span>
+            <strong>Service Desk Agent</strong>
+            <span class="morg">Oakmont Group (Atento Brasil)</span>
+            <span class="mres">Suporte N2 às ferramentas essenciais da operação.</span>
+            <span class="mmais" aria-hidden="true">+</span>
+          </button>
+          <div class="mbody"><div><ul><li>Analista de suporte N2: atualização, configuração e manutenção das ferramentas essenciais da operação.</li></ul><div class="chips"><span>Suporte N2</span><span>Genesys</span><span>TeamViewer</span></div></div></div>
+        </article>
+      </div>
+      <div class="marco dir trabalho" data-tipo="trabalho">
+        <span class="no"></span>
+        <span class="ano">2021</span>
+        <article class="mcard">
+          <button class="mhead" aria-expanded="false">
+            <span class="mquando">out. 2021 – fev. 2024</span>
+            <strong>Junior Systems Engineer (Trainee)</strong>
+            <span class="morg">Minsait · São Paulo</span>
+            <span class="mres">Início da carreira como programador, no programa de jovens profissionais.</span>
+            <span class="mmais" aria-hidden="true">+</span>
+          </button>
+          <div class="mbody"><div><ul><li>Início da carreira como programador no programa de jovens profissionais da Indra Minsait.</li><li>Testes automatizados com Robot Framework e gestão de atividades no Jira.</li></ul><div class="chips"><span>Robot Framework</span><span>Jira</span><span>Java</span></div></div></div>
+        </article>
+      </div>
+      <div class="marco esq trabalho atual aberto" data-tipo="trabalho">
+        <span class="no"></span>
+        <span class="ano">2024</span>
+        <article class="mcard">
+          <button class="mhead" aria-expanded="true">
+            <span class="mquando">jan. 2024 – atual</span>
+            <strong>System Engineer</strong>
+            <span class="morg">Minsait · São Paulo · híbrido</span>
+            <span class="mres">Sustentação de sistemas em produção, com Java e Oracle.</span>
+            <span class="mmais" aria-hidden="true">+</span>
+          </button>
+          <div class="mbody"><div><ul><li>Atuação em sustentação de sistemas, garantindo disponibilidade e desempenho das soluções em produção.</li><li>Criação e otimização de scripts PL/SQL e monitoramento de bases Oracle.</li><li>Suporte N2: análise e resolução de incidentes e de causas-raízes para evitar recorrências, com ServiceNow.</li><li>Validações em implantações evolutivas e corretivas, com Scrum e Kanban no Jira.</li></ul><div class="chips"><span>Java 7/8</span><span>Groovy</span><span>Grails</span><span>Spring Boot</span><span>Oracle</span><span>PL/SQL</span><span>Jenkins</span><span>Grafana</span><span>Rundeck</span><span>Git Flow</span></div></div></div>
+        </article>
+      </div>
+      <div class="marco dir conquista" data-tipo="conquista">
+        <span class="no"></span>
+        <span class="ano">2025</span>
+        <article class="mcard">
+          <button class="mhead" aria-expanded="false">
+            <span class="mquando">2025</span>
+            <strong>Bola de Ouro · Colabora 2025</strong>
+            <span class="morg">Minsait</span>
+            <span class="mres">Reconhecimento interno de destaque na empresa.</span>
+            <span class="mmais" aria-hidden="true">+</span>
+          </button>
+          <div class="mbody"><div><ul><li>Premiação do Colabora, programa de reconhecimento da Minsait.</li><li>Da avaliação C no fim do ciclo de Jovem Profissional à Bola de Ouro em cerca de um ano e meio: persistência e evolução.</li></ul><div class="chips"><span>Reconhecimento</span></div></div></div>
+        </article>
+      </div>
     </div>
   </div>
 </section>
@@ -748,6 +839,33 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
     deck.addEventListener("click", e => { if (moveu) { e.preventDefault(); e.stopPropagation(); moveu = false; } }, true);
     deck.addEventListener("dragstart", e => e.preventDefault());
     aplica(); addEventListener("load", medida); addEventListener("resize", () => { medida(); aplica(); }); setTimeout(medida, 400);
+  })();
+
+  // ====== linha do tempo interativa ======
+  (() => {
+    const tl = document.getElementById("tl"); if (!tl) return;
+    const marcos = [...tl.querySelectorAll(".marco")], fill = document.getElementById("tlFill");
+    marcos.forEach(m => {
+      const b = m.querySelector(".mhead");
+      b.onclick = () => {
+        const abre = !m.classList.contains("aberto");
+        marcos.forEach(o => { o.classList.remove("aberto"); o.querySelector(".mhead").setAttribute("aria-expanded", "false"); });
+        if (abre) { m.classList.add("aberto"); b.setAttribute("aria-expanded", "true"); }
+      };
+    });
+    document.getElementById("tlFiltros").addEventListener("click", e => {
+      const f = e.target.closest("button"); if (!f) return;
+      document.querySelectorAll("#tlFiltros button").forEach(x => x.classList.toggle("on", x === f));
+      marcos.forEach(m => m.classList.toggle("oculto", f.dataset.f !== "todos" && m.dataset.tipo !== f.dataset.f));
+      atualiza();
+    });
+    const atualiza = () => {
+      const r = tl.getBoundingClientRect(), vh = innerHeight, alvo = vh * .6;
+      const prog = Math.max(0, Math.min(r.height, alvo - r.top));
+      fill.style.height = prog + "px";
+      marcos.forEach(m => { if (!m.classList.contains("oculto")) m.classList.toggle("vivo", m.getBoundingClientRect().top - r.top + 26 < prog); });
+    };
+    addEventListener("scroll", atualiza, { passive: true }); addEventListener("resize", atualiza); atualiza();
   })();
 </script>
 </body>
