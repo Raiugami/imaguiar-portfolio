@@ -825,10 +825,10 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
     next.onclick = () => avanca(-1); prev.onclick = () => avanca(1);
     addEventListener("keydown", e => { if (e.key === "ArrowRight") avanca(-1); if (e.key === "ArrowLeft") avanca(1); });
 
-    let x0 = null, dx = 0, moveu = false;
-    deck.addEventListener("pointerdown", e => { const c = cartas[cur]; if (busy || !c.contains(e.target)) return; x0 = e.clientX; dx = 0; moveu = false; c.classList.add("arrasta"); c.setPointerCapture(e.pointerId); });
+    let x0 = null, dx = 0, moveu = false, pid = null;
+    deck.addEventListener("pointerdown", e => { const c = cartas[cur]; if (busy || !c.contains(e.target)) return; x0 = e.clientX; dx = 0; moveu = false; pid = e.pointerId; });
     deck.addEventListener("pointermove", e => {
-      if (x0 === null) return; dx = e.clientX - x0; if (Math.abs(dx) > 6) moveu = true;
+      if (x0 === null) return; dx = e.clientX - x0; if (!moveu && Math.abs(dx) > 6) { moveu = true; cartas[cur].classList.add("arrasta"); try { cartas[cur].setPointerCapture(pid); } catch (_) {} } if (!moveu) return;
       cartas[cur].style.transform = "translate(" + dx + "px,0) rotate(" + dx / 22 + "deg)";
     });
     const solta = () => {
