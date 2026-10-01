@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Gabriel Aguiar | Systems Engineer</title>
-<meta name="description" content="Gabriel Aguiar, Systems Engineer na Minsait. Java, Oracle, SQL e PL/SQL, com projetos pessoais em JavaScript, TypeScript e Python.">
+<meta name="description" content="Gabriel Aguiar, Systems Engineer na Minsait. Java, Spring Boot, Oracle e PL/SQL, com projetos pessoais em JavaScript, TypeScript e Python.">
 <meta name="theme-color" content="#07070b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307070b'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='%237c5cff'%3Eg.%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -184,6 +184,28 @@ nav a:hover{color:var(--txt)}
 }
 @media(prefers-reduced-motion:reduce){.rola iframe{animation:none}.dc-code span{animation:none;width:60%}}
 
+
+/* numeros */
+.numeros{padding:10px 0 20px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.num{padding:22px 24px;border:1px solid var(--line);border-radius:var(--raio);background:rgba(255,255,255,.025)}
+.num b{display:block;font:700 1.9rem 'Space Grotesk',sans-serif;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.num span{color:var(--muted);font-size:.88rem}
+/* experiencia */
+.timeline{position:relative;display:grid;gap:22px;padding-left:0}
+.tl-item{display:grid;grid-template-columns:170px 1fr;gap:26px;padding:26px;border:1px solid var(--line);border-radius:var(--raio);background:linear-gradient(160deg,rgba(255,255,255,.035),rgba(255,255,255,.01))}
+.tl-item.atual{border-color:rgba(124,92,255,.45);box-shadow:0 20px 50px -30px rgba(124,92,255,.6)}
+.tl-quando{font:500 .8rem 'JetBrains Mono',monospace;color:var(--cyan);padding-top:4px}
+.tl-item.atual .tl-quando::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:#34d399;margin-right:8px;animation:pulse 2s infinite}
+.tl-corpo h3{font-size:1.3rem}
+.tl-emp{color:var(--muted);font-size:.92rem;margin:2px 0 12px}
+.tl-corpo ul{list-style:none;display:grid;gap:7px;color:var(--muted);font-size:.93rem;margin-bottom:14px}
+.tl-corpo li{padding-left:18px;position:relative}
+.tl-corpo li::before{content:"";position:absolute;left:0;top:.7em;width:7px;height:2px;background:var(--violet)}
+.formacao{display:flex;align-items:center;gap:18px;margin-top:22px;padding:22px 26px;border:1px solid var(--line);border-radius:var(--raio)}
+.formacao .ico{margin:0}.formacao h3{font-size:1.1rem}.formacao p{color:var(--muted);font-size:.9rem}
+@media(max-width:860px){.grid4{grid-template-columns:repeat(2,1fr)}.tl-item{grid-template-columns:1fr;gap:10px}}
+
 /* sobre */
 .sobre{max-width:720px;display:grid;gap:18px;color:var(--muted);font-size:1.05rem}
 .sobre p:first-child{color:var(--txt)}
@@ -240,6 +262,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
     <nav>
       <ul id="menu">
         <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#experiencia">Experiência</a></li>
         <li><a href="#stack">Stack</a></li>
         <li><a href="#ia">IA</a></li>
         <li><a href="#projetos">Projetos</a></li>
@@ -273,14 +296,74 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
   </div>
 </section>
 
+<section class="numeros">
+  <div class="wrap grid4">
+    <div class="num reveal"><b>8+</b><span>anos em tecnologia</span></div>
+    <div class="num reveal"><b>5</b><span>anos na Minsait</span></div>
+    <div class="num reveal"><b>Colabora 2025</b><span>Bola de Ouro da Minsait</span></div>
+    <div class="num reveal"><b>6</b><span>projetos publicados</span></div>
+  </div>
+</section>
+
 <section id="sobre">
   <div class="wrap">
     <span class="tag reveal">// sobre</span>
     <h2 class="reveal">Um pouco <span class="grad">sobre mim</span></h2>
     <div class="sobre reveal">
-      <p>Sou Systems Engineer na Minsait e trabalho no dia a dia com Java, Oracle, SQL e PL/SQL, além de ter estudado Python e JavaScript. Desde então, o que mais me interessa é criar coisas que resolvem um problema real, mesmo que pequeno.</p>
-      <p>Meus projetos pessoais vão de um controle financeiro e um calendário de diárias a relatórios com gráficos que funcionam direto no navegador, sem servidor. Também já automatizei testes com Robot Framework e brinquei com bots em Python.</p>
+      <p>Graduado em Sistemas de Informação, comecei a carreira em tecnologia como estagiário e hoje sou Systems Engineer na Minsait, multinacional em São Paulo. Tenho afinidade com Oracle PL/SQL e desenvolvimento back-end, com foco em soluções robustas e escaláveis.</p>
+      <p>Estou sempre buscando evoluir em desenvolvimento de sistemas, bancos de dados e arquitetura de microsserviços. Fora do trabalho, crio projetos pessoais em JavaScript, TypeScript e Python, de um controle financeiro a um app de conversas com voz e vídeo.</p>
       <p>Também crio sites para profissionais autônomos, com HTML, CSS e JavaScript puros, publicados no GitHub Pages.</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="experiencia">
+  <div class="wrap">
+    <span class="tag reveal">// experiência</span>
+    <h2 class="reveal">Minha <span class="grad">trajetória</span></h2>
+    <p class="sub reveal">De estagiário a Systems Engineer, sempre em tecnologia.</p>
+    <div class="timeline">
+      <div class="tl-item atual reveal">
+        <div class="tl-quando">jan. 2024 – atual</div>
+        <div class="tl-corpo">
+          <h3>System Engineer</h3>
+          <div class="tl-emp">Minsait · São Paulo · híbrido</div>
+          <ul><li>Atuação em sustentação de sistemas, garantindo disponibilidade e desempenho das soluções em produção.</li><li>Criação e otimização de scripts PL/SQL e monitoramento de bases Oracle.</li><li>Suporte N2: análise e resolução de incidentes e de causas-raízes para evitar recorrências, com ServiceNow.</li><li>Validações em implantações evolutivas e corretivas, com Scrum e Kanban no Jira.</li></ul>
+          <div class="chips"><span>Java 7/8</span><span>Groovy</span><span>Grails</span><span>Spring Boot</span><span>Oracle</span><span>PL/SQL</span><span>Jenkins</span><span>Grafana</span><span>Rundeck</span><span>Git Flow</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-quando">out. 2021 – fev. 2024</div>
+        <div class="tl-corpo">
+          <h3>Junior Systems Engineer (Trainee)</h3>
+          <div class="tl-emp">Minsait · São Paulo</div>
+          <ul><li>Início da carreira como programador no programa de jovens profissionais da Indra Minsait.</li><li>Testes automatizados com Robot Framework e gestão de atividades no Jira.</li></ul>
+          <div class="chips"><span>Robot Framework</span><span>Jira</span><span>Java</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-quando">jan. 2021 – set. 2021</div>
+        <div class="tl-corpo">
+          <h3>Service Desk Agent</h3>
+          <div class="tl-emp">Oakmont Group (Atento Brasil)</div>
+          <ul><li>Analista de suporte N2: atualização, configuração e manutenção das ferramentas essenciais da operação.</li></ul>
+          <div class="chips"><span>Suporte N2</span><span>Genesys</span><span>TeamViewer</span></div>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-quando">abr. 2018 – abr. 2020</div>
+        <div class="tl-corpo">
+          <h3>Estagiário de TI</h3>
+          <div class="tl-emp">Mercedes-Benz do Brasil · São Bernardo do Campo</div>
+          <ul><li>Suporte técnico e desenvolvimento de soluções para Vendas e Pós-Vendas.</li><li>Acompanhamento de Change Management, automação de rotinas e integração de novas funcionalidades.</li></ul>
+          <div class="chips"><span>Suporte</span><span>Automação</span><span>Change Management</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="formacao reveal">
+      <div class="ico">🎓</div>
+      <div><h3>Bacharelado em Sistemas de Informação</h3><p>Universidade Brasil · 2016 – 2020</p></div>
     </div>
   </div>
 </section>
@@ -291,9 +374,12 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
     <h2 class="reveal">Com o que eu <span class="grad">trabalho</span></h2>
     <p class="sub reveal">Tecnologias que uso no trabalho e nos projetos pessoais.</p>
     <div class="grid3">
-      <div class="card reveal"><div class="ico">☕</div><h3>Back-end</h3><p>Java no dia a dia, com bancos Oracle, SQL e PL/SQL.</p></div>
+      <div class="card reveal"><div class="ico">☕</div><h3>Back-end</h3><p>Java 8+, Spring Boot, microsserviços, APIs REST e mensageria com Kafka.</p></div>
+      <div class="card reveal"><div class="ico">▤</div><h3>Banco de dados</h3><p>Oracle, SQL e PL/SQL: scripts, otimização e monitoramento de bases.</p></div>
+      <div class="card reveal"><div class="ico">⚙</div><h3>Entrega e operação</h3><p>Git e GitLab, Jenkins, Azure, Grafana, Rundeck, Jira e ServiceNow.</p></div>
       <div class="card reveal"><div class="ico">◧</div><h3>Front-end</h3><p>HTML, CSS e JavaScript puros, TypeScript e interfaces responsivas que funcionam offline.</p></div>
-      <div class="card reveal"><div class="ico">⚙</div><h3>Automação e testes</h3><p>Python, Selenium e Robot Framework para automatizar tarefas e testes.</p></div>
+      <div class="card reveal"><div class="ico">⌘</div><h3>Automação e testes</h3><p>Python, Selenium e Robot Framework para automatizar tarefas e testes.</p></div>
+      <div class="card reveal"><div class="ico">✦</div><h3>Inteligência artificial</h3><p>Assistentes de código e automação com IA no meu fluxo de trabalho.</p></div>
     </div>
   </div>
 </section>
