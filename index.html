@@ -218,14 +218,18 @@ nav a:hover{color:var(--txt)}
 .car-ctrl button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--txt);font-size:1.1rem;cursor:pointer;transition:.25s}
 .car-ctrl button:hover{border-color:var(--violet);background:rgba(124,92,255,.15)}
 .car-ctrl button:disabled{opacity:.35;cursor:default}
-.carousel{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:6px;scrollbar-width:none}
+.carousel{display:flex;justify-content:safe center;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:6px;scrollbar-width:none}
 .carousel::-webkit-scrollbar{display:none}
-.carousel .slide{flex:0 0 68%;scroll-snap-align:start}
+.carousel .slide{flex:0 0 min(400px,38%);scroll-snap-align:start}
+.carousel .slide .thumb{aspect-ratio:16/11}
+.carousel .slide .info{padding:20px}
+.carousel .slide .info h3{font-size:1.15rem}
+.carousel .slide .info p{font-size:.86rem}
 .car-dots{display:flex;gap:8px;justify-content:center;margin-top:20px}
 .car-dots i{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.2);cursor:pointer;transition:.3s}
 .car-dots i.on{width:26px;background:var(--grad)}
-@media(max-width:1000px){.grid-apps{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:860px){.grid-apps{grid-template-columns:1fr}.carousel .slide{flex-basis:88%}.car-head{align-items:center}}
+@media(max-width:1000px){.grid-apps{grid-template-columns:repeat(2,1fr)}.carousel .slide{flex-basis:min(400px,60%)}}
+@media(max-width:860px){.grid-apps{grid-template-columns:1fr}.carousel .slide{flex-basis:84%}.car-head{align-items:center}}
 
 /* sobre */
 .sobre{max-width:720px;display:grid;gap:18px;color:var(--muted);font-size:1.05rem}
