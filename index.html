@@ -136,7 +136,7 @@ nav a:hover{color:var(--txt)}
 .fin-top b{font-size:1.9em;display:block;color:#fff}
 .fin-tabs{display:flex;gap:4px}.fin-tabs i{font-style:normal;padding:3px 9px;border-radius:99px;background:#1f2937;color:#aab4c4}.fin-tabs i.on{background:#3366cc;color:#fff}
 .fin-bars{display:flex;align-items:flex-end;gap:8px;padding:0 4px;border-bottom:1px solid #2a3547;min-height:60px}
-.fin-bars i{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(#3366cc,#4a7fe0);height:4%;transition:height .8s cubic-bezier(.2,.8,.2,1)}
+.fin-bars i{flex:1;border-radius:5px 5px 0 0;background:linear-gradient(#3366cc,#4a7fe0);height:100%;transform:scaleY(.04);transform-origin:bottom;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
 .fin-bars i.g{background:linear-gradient(#159957,#27c07a)}
 .fin-list{display:grid;gap:5px;min-height:62px;align-content:end}
 .fin-row{display:flex;justify-content:space-between;padding:5px 9px;border-radius:8px;background:#1f2937;opacity:0;transform:translateY(8px);transition:.45s}
@@ -146,7 +146,7 @@ nav a:hover{color:var(--txt)}
 .prot small{opacity:.7}
 .prot-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
 .prot-kpis>div{background:#fff;border:1px solid #e2e4e7;border-radius:8px;padding:6px 9px}.prot-kpis b{display:block;font-size:1.5em;color:#b8325a}
-.prot-meta{height:6px;border-radius:9px;background:#e2e4e7;overflow:hidden}.prot-meta span{display:block;height:100%;width:0;background:linear-gradient(90deg,#d4547d,#b8325a);transition:width .5s}
+.prot-meta{height:6px;border-radius:9px;background:#e2e4e7;overflow:hidden}.prot-meta span{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left;background:linear-gradient(90deg,#d4547d,#b8325a);transition:transform .5s cubic-bezier(.22,1,.36,1)}
 .prot-cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px}
 .prot-cal i{font-style:normal;text-align:center;padding:3px 0;border-radius:5px;background:#fff;border:1px solid #e2e4e7;color:#999;transition:.35s}
 .prot-cal i.g{background:#e3f4ea;color:#208b59;border-color:#b6dfc8}.prot-cal i.y{background:#fff6d9;color:#a07800;border-color:#ecd98c}.prot-cal i.r{background:#fde8ec;color:#b8325a;border-color:#f5c2cb}
@@ -183,14 +183,14 @@ nav a:hover{color:var(--txt)}
 .dc-peer{display:flex;align-items:center;gap:9px}.dc-peer i{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;font-style:normal;font-weight:600;color:#0b0a12;background:var(--c);transition:box-shadow .25s}
 .dc-peer.fala i{box-shadow:0 0 0 2px #0b0a12,0 0 0 4px #3ddc84}
 .dc-share{margin-top:auto;border:1px solid #2a2840;border-radius:9px;background:#0b0a12;padding:7px}
-.dc-code{display:grid;gap:4px;margin-top:6px}.dc-code span{height:6px;border-radius:3px;background:linear-gradient(90deg,#6f5fef,#5ee7ff);width:20%;animation:digita 3.2s ease-in-out infinite}
+.dc-code{display:grid;gap:4px;margin-top:6px}.dc-code span{height:6px;border-radius:3px;background:linear-gradient(90deg,#6f5fef,#5ee7ff);width:88%;transform-origin:left;transform:scaleX(.68);animation:digita 3.2s ease-in-out infinite}
 .dc-code span:nth-child(2){animation-delay:.3s}.dc-code span:nth-child(3){animation-delay:.7s}.dc-code span:nth-child(4){animation-delay:1.1s}.dc-code span:nth-child(5){animation-delay:1.5s}.dc-code span:nth-child(6){animation-delay:1.9s}
-@keyframes digita{0%{width:8%}50%{width:88%}100%{width:8%}}
+@keyframes digita{0%{transform:scaleX(.09)}50%{transform:scaleX(1)}100%{transform:scaleX(.09)}}
 @media(max-width:860px){
   .dc{grid-template-columns:44px 1fr}.dc-chan,.dc-voice{display:none}
   .proj .dc-thumb{height:300px}
 }
-@media(prefers-reduced-motion:reduce){.rola iframe{animation:none}.dc-code span{animation:none;width:60%}}
+@media(prefers-reduced-motion:reduce){.rola iframe{animation:none}.dc-code span{animation:none;transform:scaleX(.68)}}
 
 
 /* numeros */
@@ -261,10 +261,12 @@ nav a:hover{color:var(--txt)}
 .tl-filtros button.on{background:var(--grad);color:#07070b;border-color:transparent}
 .tl{position:relative;display:grid;gap:34px;padding:10px 0 20px}
 .tl-linha{position:absolute;left:50%;top:0;bottom:0;width:2px;margin-left:-1px;background:var(--line)}
-.tl-linha i{display:block;width:100%;height:0;background:var(--grad);box-shadow:0 0 18px rgba(124,92,255,.8);transition:height .15s linear}
-.marco{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:start;transition:opacity .4s,transform .4s}
+.tl-linha i{display:block;width:100%;height:100%;transform:scaleY(0);transform-origin:top;background:var(--grad);box-shadow:0 0 18px rgba(124,92,255,.8);transition:transform .15s linear}
+.marco{position:relative;display:grid;grid-template-columns:1fr 1fr;align-items:start;transition:opacity .2s ease-out,transform .2s ease-out}
 .marco.esq .mcard{grid-column:1;margin-right:46px}.marco.dir .mcard{grid-column:2;margin-left:46px}
 .marco.oculto{display:none}
+.marco.saindo{opacity:0;transform:translateY(-6px);transition-duration:.15s}
+.marco.entrando{opacity:0;transform:translateY(6px)}
 .no{position:absolute;left:50%;top:26px;width:16px;height:16px;margin-left:-8px;border-radius:50%;background:var(--bg);border:2px solid var(--line);z-index:2;transition:.4s}
 .marco.vivo .no{border-color:var(--violet);background:var(--violet);box-shadow:0 0 0 6px rgba(124,92,255,.2)}
 .marco.atual .no::after{content:"";position:absolute;inset:-8px;border-radius:50%;border:2px solid #34d399;animation:onda 2s infinite}
@@ -329,8 +331,8 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 .reveal.in{opacity:1;transform:none}
 @media(max-width:860px){
   .grid2,.grid3,.passos{grid-template-columns:1fr}
-  nav ul{position:fixed;inset:70px 0 auto 0;flex-direction:column;gap:0;background:rgba(7,7,11,.97);border-bottom:1px solid var(--line);display:none}
-  nav ul.on{display:flex}
+  nav ul{position:fixed;inset:70px 0 auto 0;flex-direction:column;gap:0;background:rgba(7,7,11,.97);border-bottom:1px solid var(--line);display:flex;opacity:0;visibility:hidden;pointer-events:none;transform:translateY(-8px);transition:opacity .15s ease-in,transform .15s ease-in,visibility 0s linear .15s}
+  nav ul.on{opacity:1;visibility:visible;pointer-events:auto;transform:none;transition:opacity .2s cubic-bezier(.22,1,.36,1),transform .2s cubic-bezier(.22,1,.36,1),visibility 0s}
   nav li a{display:block;padding:16px 24px;border-top:1px solid var(--line)}
   .menu{display:block}
   .nav .btn{display:none}
@@ -692,8 +694,10 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
   onScroll(); addEventListener("scroll", onScroll, { passive: true });
 
   const menu = document.getElementById("menu");
-  document.getElementById("btnMenu").onclick = () => menu.classList.toggle("on");
-  menu.querySelectorAll("a").forEach(a => a.onclick = () => menu.classList.remove("on"));
+  const btnMenu = document.getElementById("btnMenu");
+  btnMenu.setAttribute("aria-expanded", "false");
+  btnMenu.onclick = () => btnMenu.setAttribute("aria-expanded", menu.classList.toggle("on"));
+  menu.querySelectorAll("a").forEach(a => a.onclick = () => { menu.classList.remove("on"); btnMenu.setAttribute("aria-expanded", "false"); });
 
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
@@ -716,15 +720,20 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
   });
   const brl = v => "R$ " + v.toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
+  const FIN_ALTURAS = [30, 52, 40, 70, 58, 86];
+  const FIN_ROWS = [["Salário", "+ R$ 5.200,00", "p"], ["Aluguel", "− R$ 1.450,00", "n"], ["Mercado", "− R$ 380,50", "n"], ["Caixinha viagem", "+ R$ 450,00", "p"]];
+  const PROT_CLS = ["g", "g", "y", "g", "r", "g", "g"], PROT_VALS = [42, 51, 38, 47, 29, 55, 49];
+  const DC_ROTEIRO = [["Ana", "#ff6bd6", "Bora jogar hoje à noite? 🎮"], ["Bruno", "#3ddc84", "Bora! Já entro na sala de voz"], ["Gabriel", "#a78bfa", "Compartilhando a tela aqui, olha esse bug 👀"], ["Ana", "#ff6bd6", "kkk isso se resolve com um commit"], ["Bruno", "#3ddc84", "Subi a versão nova do app 🚀"]];
+
   const demos = {
     async fin(el, on) {
       const saldo = el.querySelector(".fin-saldo"), bars = el.querySelector(".fin-bars"), list = el.querySelector(".fin-list");
-      const alturas = [30, 52, 40, 70, 58, 86], rows = [["Salário", "+ R$ 5.200,00", "p"], ["Aluguel", "− R$ 1.450,00", "n"], ["Mercado", "− R$ 380,50", "n"], ["Caixinha viagem", "+ R$ 450,00", "p"]];
+      const alturas = FIN_ALTURAS, rows = FIN_ROWS;
       while (on()) {
         bars.innerHTML = alturas.map((_, i) => '<i class="' + (i % 2 ? "g" : "") + '"></i>').join(""); list.innerHTML = ""; saldo.textContent = brl(0);
         await sleep(500);
         const bs = [...bars.children];
-        for (let i = 0; i < bs.length && on(); i++) { bs[i].style.height = alturas[i] + "%"; await sleep(160); }
+        for (let i = 0; i < bs.length && on(); i++) { bs[i].style.transform = "scaleY(" + alturas[i] / 100 + ")"; await sleep(160); }
         tween(saldo, 0, 4819.5, 1800, brl);
         for (const [n, v, c] of rows) {
           if (!on()) break;
@@ -738,17 +747,17 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
     async prot(el, on) {
       const cal = el.querySelector(".prot-cal"), line = el.querySelector(".prot-line"), meta = el.querySelector(".prot-meta span");
       const k1 = el.querySelector(".k1"), k2 = el.querySelector(".k2"), k3 = el.querySelector(".k3");
-      const cls = ["g", "g", "y", "g", "r", "g", "g"], vals = [42, 51, 38, 47, 29, 55, 49];
+      const cls = PROT_CLS, vals = PROT_VALS;
       while (on()) {
         cal.innerHTML = ""; for (let d = 1; d <= 21; d++) { const c = document.createElement("i"); c.textContent = d; cal.append(c); }
-        line.classList.remove("on"); meta.style.width = "0"; k1.textContent = "0"; k2.textContent = "0,0"; k3.textContent = "0%";
+        line.classList.remove("on"); meta.style.transform = "scaleX(0)"; k1.textContent = "0"; k2.textContent = "0,0"; k3.textContent = "0%";
         await sleep(600); line.classList.add("on");
         let tot = 0;
         for (let d = 0; d < 21 && on(); d++) {
           const c = cal.children[d], v = vals[d % 7] + (d % 3) * 2; tot += v;
           c.className = cls[d % 7]; c.textContent = v; k1.textContent = tot;
           k2.textContent = (tot / (d + 1) / 8).toFixed(1).replace(".", ","); const m = Math.min(100, Math.round(tot / 10.5));
-          k3.textContent = m + "%"; meta.style.width = m + "%"; await sleep(230);
+          k3.textContent = m + "%"; meta.style.transform = "scaleX(" + m / 100 + ")"; await sleep(230);
         }
         await sleep(2600);
       }
@@ -765,7 +774,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
     },
     async dc(el, on) {
       const msgs = el.querySelector(".dc-msgs"), typing = el.querySelector(".dc-typing"), peers = [...el.querySelectorAll(".dc-peer")], vz = el.querySelector(".dc-chan p.vz");
-      const roteiro = [["Ana", "#ff6bd6", "Bora jogar hoje à noite? 🎮"], ["Bruno", "#3ddc84", "Bora! Já entro na sala de voz"], ["Gabriel", "#a78bfa", "Compartilhando a tela aqui, olha esse bug 👀"], ["Ana", "#ff6bd6", "kkk isso se resolve com um commit"], ["Bruno", "#3ddc84", "Subi a versão nova do app 🚀"]];
+      const roteiro = DC_ROTEIRO;
       let fala = 0;
       (async () => { while (on()) { peers.forEach((p, i) => p.classList.toggle("fala", i === fala)); fala = (fala + 1) % peers.length; vz.classList.toggle("on"); await sleep(1100); } })();
       while (on()) {
@@ -783,13 +792,39 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
       }
     },
   };
+  // Com movimento reduzido, cada demo mostra o ultimo quadro de uma vez (sem loop).
+  const estaticos = {
+    fin(el) {
+      const bars = el.querySelector(".fin-bars"), list = el.querySelector(".fin-list");
+      bars.innerHTML = FIN_ALTURAS.map((a, i) => '<i class="' + (i % 2 ? "g" : "") + '" style="transform:scaleY(' + a / 100 + ')"></i>').join("");
+      el.querySelector(".fin-saldo").textContent = brl(4819.5); list.innerHTML = "";
+      FIN_ROWS.slice(-2).forEach(([n, v, c]) => { const r = document.createElement("div"); r.className = "fin-row in"; r.innerHTML = "<span>" + n + '</span><span class="v ' + c + '">' + v + "</span>"; list.append(r); });
+    },
+    prot(el) {
+      const cal = el.querySelector(".prot-cal"); cal.innerHTML = ""; let tot = 0;
+      for (let d = 0; d < 21; d++) { const v = PROT_VALS[d % 7] + (d % 3) * 2; tot += v; const c = document.createElement("i"); c.className = PROT_CLS[d % 7]; c.textContent = v; cal.append(c); }
+      const m = Math.min(100, Math.round(tot / 10.5));
+      el.querySelector(".k1").textContent = tot; el.querySelector(".k2").textContent = (tot / 21 / 8).toFixed(1).replace(".", ","); el.querySelector(".k3").textContent = m + "%";
+      el.querySelector(".prot-meta span").style.transform = "scaleX(" + m / 100 + ")"; el.querySelector(".prot-line").classList.add("on");
+    },
+    dias(el) {
+      const cal = el.querySelector(".dias-cal"); cal.innerHTML = ""; let t = 0;
+      for (let d = 1; d <= 28; d++) { const c = document.createElement("i"); c.textContent = d; if (d % 7 === 0 || d % 7 === 6) c.className = "fim"; else { c.className = "on"; t++; } cal.append(c); }
+      el.querySelector(".dias-n").textContent = t;
+    },
+    dc(el) {
+      const msgs = el.querySelector(".dc-msgs"); msgs.innerHTML = "";
+      DC_ROTEIRO.slice(-4).forEach(([nome, cor, texto]) => { const m = document.createElement("div"); m.className = "dc-msg in"; m.style.setProperty("--c", cor); m.innerHTML = "<i>" + nome[0] + "</i><div><b>" + nome + "</b><span>" + texto + "</span></div>"; msgs.append(m); });
+      const p = el.querySelector(".dc-peer"); if (p) p.classList.add("fala");
+    },
+  };
   const reduzido = matchMedia("(prefers-reduced-motion: reduce)").matches;
   const ioDemo = new IntersectionObserver(es => es.forEach(e => {
     const el = e.target, k = el.dataset.demo;
     vivo.set(el, e.isIntersecting && !reduzido);
     if (e.isIntersecting && !el.dataset.rodando) { el.dataset.rodando = "1"; (async () => { while (true) { await demos[k](el, () => vivo.get(el)); await sleep(400); } })(); }
   }), { threshold: .25 });
-  document.querySelectorAll("[data-demo]").forEach(el => ioDemo.observe(el));
+  document.querySelectorAll("[data-demo]").forEach(el => reduzido ? estaticos[el.dataset.demo](el) : ioDemo.observe(el));
 
   // ====== baralho de sites ======
   (() => {
@@ -861,16 +896,29 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
         if (abre) { m.classList.add("aberto"); b.setAttribute("aria-expanded", "true"); }
       };
     });
+    const filtra = (m, oculta) => {
+      const ja = m.classList.contains("oculto");
+      clearTimeout(m._t);
+      if (oculta) {
+        if (ja) return;
+        m.classList.add("saindo");
+        m._t = setTimeout(() => { m.classList.add("oculto"); m.classList.remove("saindo"); atualiza(); }, 160);
+      } else {
+        m.classList.remove("saindo");
+        if (!ja) return;
+        m.classList.remove("oculto"); m.classList.add("entrando"); void m.offsetWidth; m.classList.remove("entrando");
+      }
+    };
     document.getElementById("tlFiltros").addEventListener("click", e => {
       const f = e.target.closest("button"); if (!f) return;
       document.querySelectorAll("#tlFiltros button").forEach(x => x.classList.toggle("on", x === f));
-      marcos.forEach(m => m.classList.toggle("oculto", f.dataset.f !== "todos" && m.dataset.tipo !== f.dataset.f));
+      marcos.forEach(m => filtra(m, f.dataset.f !== "todos" && m.dataset.tipo !== f.dataset.f));
       atualiza();
     });
     const atualiza = () => {
       const r = tl.getBoundingClientRect(), vh = innerHeight, alvo = vh * .6;
       const prog = Math.max(0, Math.min(r.height, alvo - r.top));
-      fill.style.height = prog + "px";
+      fill.style.transform = "scaleY(" + (r.height ? prog / r.height : 0) + ")";
       marcos.forEach(m => { if (!m.classList.contains("oculto")) m.classList.toggle("vivo", m.getBoundingClientRect().top - r.top + 26 < prog); });
     };
     addEventListener("scroll", atualiza, { passive: true }); addEventListener("resize", atualiza); atualiza();
