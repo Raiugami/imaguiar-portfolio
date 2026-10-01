@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Gabriel Aguiar | Desenvolvedor e criador de sites</title>
-<meta name="description" content="Gabriel Aguiar, desenvolvedor. Crio sites rápidos, bonitos e prontos para receber agendamentos pelo WhatsApp e pelo Instagram.">
+<title>Gabriel Aguiar | Desenvolvedor</title>
+<meta name="description" content="Gabriel Aguiar, desenvolvedor Java. Portfólio com projetos em Java, JavaScript, TypeScript e Python.">
 <meta name="theme-color" content="#07070b">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307070b'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='%237c5cff'%3Eg.%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -87,6 +87,10 @@ nav a:hover{color:var(--txt)}
 .ver{font-weight:500;color:var(--txt);margin-top:6px;display:inline-flex;gap:8px;align-items:center}
 .proj:hover .ver{color:var(--cyan)}
 
+/* sobre */
+.sobre{max-width:720px;display:grid;gap:18px;color:var(--muted);font-size:1.05rem}
+.sobre p:first-child{color:var(--txt)}
+.proj .info{padding:28px}
 /* servicos */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
 .card{padding:30px;border:1px solid var(--line);border-radius:var(--raio);background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.01));transition:.3s}
@@ -129,22 +133,22 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 <body>
 <!--
   ============ COMO PERSONALIZAR ============
-  1) CONTATO: preencha WHATSAPP no <script> do final. Sem WhatsApp, os botões levam ao e-mail.
-  2) SITES: os dois trabalhos usam os subdomínios isabella.imaguiar.com.br e patricia.imaguiar.com.br.
-     Antes de publicar, confirme com as clientes que podem aparecer no portfólio.
+  1) CONTATO: troque EMAIL no <script> do final.
+  2) PROJETOS: cada card da seção "projetos" aponta para um repositório do GitHub; edite os textos à vontade.
+  3) SITES DE CLIENTES: confirme com as clientes que podem aparecer aqui antes de publicar.
 -->
 <header id="top">
   <div class="wrap nav">
     <a href="#top" class="logo">gabriel<span>.</span>aguiar</a>
     <nav>
       <ul id="menu">
-        <li><a href="#trabalhos">Trabalhos</a></li>
-        <li><a href="#servicos">O que faço</a></li>
-        <li><a href="#processo">Como funciona</a></li>
+        <li><a href="#sobre">Sobre</a></li>
+        <li><a href="#stack">Stack</a></li>
+        <li><a href="#projetos">Projetos</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
     </nav>
-    <a class="btn btn-main js-orcamento" href="#contato">Pedir orçamento</a>
+    <a class="btn btn-main" href="#contato">Vamos conversar</a>
     <button class="menu" id="btnMenu" aria-label="Abrir menu">☰</button>
   </div>
 </header>
@@ -152,77 +156,97 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 <main>
 <section class="hero">
   <div class="wrap">
-    <div class="pill"><span class="dot"></span> Disponível para novos projetos</div>
-    <h1>Sites que <span class="grad">passam confiança</span> e levam o cliente até você.</h1>
-    <p>Sou o Gabriel, desenvolvedor. Crio sites rápidos, bonitos no celular e prontos para receber agendamentos pelo WhatsApp e pelo Instagram, para profissionais que vivem de atendimento.</p>
+    <div class="pill"><span class="dot"></span> Desenvolvedor Java · Santo André, SP</div>
+    <h1>Oi, eu sou o <span class="grad">Gabriel Aguiar</span>.</h1>
+    <p>Desenvolvedor Java na Indra. Fora do trabalho, gosto de transformar problemas do dia a dia em ferramentas simples, com JavaScript, TypeScript e Python, e de manter tudo publicado e acessível.</p>
     <div class="acoes">
-      <a href="#trabalhos" class="btn btn-main">Ver trabalhos →</a>
-      <a href="#contato" class="btn btn-line js-orcamento">Pedir orçamento</a>
+      <a href="#projetos" class="btn btn-main">Ver projetos →</a>
+      <a href="https://github.com/Raiugami" class="btn btn-line" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/gabrielaesaguiar/" class="btn btn-line" target="_blank" rel="noopener">LinkedIn ↗</a>
     </div>
-    <div class="stack"><span>HTML</span><span>CSS</span><span>JavaScript</span><span>Python</span><span>Java</span><span>GitHub Pages</span></div>
+    <div class="stack"><span>Java</span><span>JavaScript</span><span>TypeScript</span><span>Python</span><span>SQL e PL/SQL</span><span>Robot Framework</span></div>
   </div>
 </section>
 
-<section id="trabalhos">
+<section id="sobre">
   <div class="wrap">
-    <span class="tag reveal">// trabalhos</span>
-    <h2 class="reveal">Projetos <span class="grad">publicados</span></h2>
-    <p class="sub reveal">Sites reais, no ar, feitos sob medida para a identidade de cada cliente.</p>
+    <span class="tag reveal">// sobre</span>
+    <h2 class="reveal">Um pouco <span class="grad">sobre mim</span></h2>
+    <div class="sobre reveal">
+      <p>Trabalho com desenvolvimento Java no dia a dia e comecei a programar estudando Python, JavaScript e SQL. Desde então, o que mais me interessa é criar coisas que resolvem um problema real, mesmo que pequeno.</p>
+      <p>Meus projetos pessoais vão de um controle financeiro e um calendário de diárias a relatórios com gráficos que funcionam direto no navegador, sem servidor. Também já automatizei testes com Robot Framework e brinquei com bots em Python.</p>
+      <p>Também crio sites para profissionais autônomos, com HTML, CSS e JavaScript puros, publicados no GitHub Pages.</p>
+    </div>
+  </div>
+</section>
+
+<section id="stack">
+  <div class="wrap">
+    <span class="tag reveal">// stack</span>
+    <h2 class="reveal">Com o que eu <span class="grad">trabalho</span></h2>
+    <p class="sub reveal">Tecnologias que uso no trabalho e nos projetos pessoais.</p>
+    <div class="grid3">
+      <div class="card reveal"><div class="ico">☕</div><h3>Back-end</h3><p>Java no dia a dia, com bancos relacionais, SQL e PL/SQL.</p></div>
+      <div class="card reveal"><div class="ico">◧</div><h3>Front-end</h3><p>HTML, CSS e JavaScript puros, TypeScript e interfaces responsivas que funcionam offline.</p></div>
+      <div class="card reveal"><div class="ico">⚙</div><h3>Automação e testes</h3><p>Python, Selenium e Robot Framework para automatizar tarefas e testes.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="projetos">
+  <div class="wrap">
+    <span class="tag reveal">// projetos</span>
+    <h2 class="reveal">Alguns <span class="grad">projetos</span></h2>
+    <p class="sub reveal">Projetos pessoais e sites que criei. O código está no GitHub.</p>
     <div class="grid2">
-      <a class="proj reveal" href="https://isabella.imaguiar.com.br/" target="_blank" rel="noopener">
-        <div class="thumb isa">
-          <div class="barra"><i></i><i></i><i></i><em>isabella.imaguiar.com.br</em></div>
-          <div class="arte"><b>Realçar o que já é seu</b><small>Brow lamination, cílios e skincare em Santo André</small><span class="bt">Agendar</span></div>
-        </div>
+      <a class="proj reveal" href="https://github.com/Raiugami/organizacao-financeira" target="_blank" rel="noopener">
         <div class="info">
-          <h3>Isabella Garcia | Estética</h3>
-          <p>Site de uma página para esteticista, com serviços, passo a passo do agendamento, resultados do Instagram, feedbacks, mapa e dúvidas frequentes.</p>
-          <div class="chips"><span>one-page</span><span>mobile first</span><span>Instagram</span></div>
+          <h3>Organização financeira</h3>
+          <p>Aplicação web para controle financeiro, investimentos e caixinhas.</p>
+          <div class="chips"><span>HTML</span><span>JavaScript</span></div>
+          <span class="ver">Ver no GitHub <span>↗</span></span>
+        </div>
+      </a>
+      <a class="proj reveal" href="https://github.com/Raiugami/relatorio-protocolos" target="_blank" rel="noopener">
+        <div class="info">
+          <h3>Relatório de protocolos</h3>
+          <p>Relatório gerencial com calendário mensal, metas configuráveis, projeção, gráficos, ranking e backup em JSON. Salva localmente e funciona offline.</p>
+          <div class="chips"><span>HTML</span><span>JavaScript</span><span>offline</span></div>
+          <span class="ver">Ver no GitHub <span>↗</span></span>
+        </div>
+      </a>
+      <a class="proj reveal" href="https://github.com/Raiugami/meus-dias" target="_blank" rel="noopener">
+        <div class="info">
+          <h3>Meus dias</h3>
+          <p>Calendário de diárias com resumo mensal, visual natalino e backup local.</p>
+          <div class="chips"><span>HTML</span><span>JavaScript</span></div>
+          <span class="ver">Ver no GitHub <span>↗</span></span>
+        </div>
+      </a>
+      <a class="proj reveal" href="https://github.com/Raiugami/Robot-framework" target="_blank" rel="noopener">
+        <div class="info">
+          <h3>Testes com Robot Framework</h3>
+          <p>Repositório de estudo de testes automatizados com Robot Framework.</p>
+          <div class="chips"><span>Robot Framework</span><span>automação</span></div>
+          <span class="ver">Ver no GitHub <span>↗</span></span>
+        </div>
+      </a>
+      <a class="proj reveal" href="https://isabella.imaguiar.com.br/" target="_blank" rel="noopener">
+        <div class="info">
+          <h3>Site: Isabella Garcia | Estética</h3>
+          <p>Site de uma página para esteticista, com serviços, resultados do Instagram, feedbacks, mapa e dúvidas frequentes.</p>
+          <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
           <span class="ver">Visitar site <span>↗</span></span>
         </div>
       </a>
       <a class="proj reveal" href="https://patricia.imaguiar.com.br/" target="_blank" rel="noopener">
-        <div class="thumb pat">
-          <div class="barra"><i></i><i></i><i></i><em>patricia.imaguiar.com.br</em></div>
-          <div class="arte"><b>Harmonia das Orelhas</b><small>Furo humanizado, correção de lóbulo e otomodelação</small><span class="bt">Agendar no WhatsApp</span></div>
-        </div>
         <div class="info">
-          <h3>Patrícia Lima | Harmonia das Orelhas</h3>
-          <p>Site institucional para especialista em furo humanizado, com apresentação, serviços, cuidados, galeria e botão fixo de WhatsApp.</p>
-          <div class="chips"><span>one-page</span><span>WhatsApp</span><span>SEO local</span></div>
+          <h3>Site: Harmonia das Orelhas</h3>
+          <p>Site institucional para especialista em furo humanizado, com serviços, galeria e botão fixo de WhatsApp.</p>
+          <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
           <span class="ver">Visitar site <span>↗</span></span>
         </div>
       </a>
-    </div>
-  </div>
-</section>
-
-<section id="servicos">
-  <div class="wrap">
-    <span class="tag reveal">// o que faço</span>
-    <h2 class="reveal">Tudo para você <span class="grad">entrar no ar</span></h2>
-    <p class="sub reveal">Do layout à publicação, sem você precisar entender de tecnologia.</p>
-    <div class="grid3">
-      <div class="card reveal"><div class="ico">◧</div><h3>Design com a sua cara</h3><p>Visual baseado na identidade do seu Instagram e da sua marca, pensado primeiro para o celular.</p></div>
-      <div class="card reveal"><div class="ico">✆</div><h3>Agendamento direto</h3><p>Botão fixo que leva ao WhatsApp ou ao direct do Instagram, com mensagem pronta.</p></div>
-      <div class="card reveal"><div class="ico">⌕</div><h3>Aparece no Google</h3><p>Textos pensados para busca local, para quem procura o seu serviço na sua região.</p></div>
-      <div class="card reveal"><div class="ico">⚡</div><h3>Rápido e seguro</h3><p>Páginas leves, publicadas com HTTPS e sem mensalidade de hospedagem.</p></div>
-      <div class="card reveal"><div class="ico">◎</div><h3>Domínio profissional</h3><p>Endereço .com.br registrado no seu nome, e o domínio é seu.</p></div>
-      <div class="card reveal"><div class="ico">✎</div><h3>Manutenção opcional</h3><p>Troca de fotos, textos e serviços sempre que precisar, num plano mensal simples.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="processo">
-  <div class="wrap">
-    <span class="tag reveal">// como funciona</span>
-    <h2 class="reveal">Do primeiro contato ao <span class="grad">site no ar</span></h2>
-    <p class="sub reveal">Um processo curto e claro, com entrega em até 5 dias úteis depois da aprovação.</p>
-    <div class="passos">
-      <div class="passo reveal"><h3>Conversa</h3><p>Você me conta o que faz e envia fotos e o WhatsApp para agendamentos.</p></div>
-      <div class="passo reveal"><h3>Orçamento</h3><p>Proposta clara, com o que está incluso, valores e prazo.</p></div>
-      <div class="passo reveal"><h3>Criação</h3><p>Monto o site e você pede até duas rodadas de ajustes.</p></div>
-      <div class="passo reveal"><h3>No ar</h3><p>Publico com HTTPS e entrego tudo configurado no seu domínio.</p></div>
     </div>
   </div>
 </section>
@@ -231,17 +255,13 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
   <div class="wrap">
     <div class="cta reveal">
       <span class="tag">// contato</span>
-      <h2>Vamos colocar o seu <span class="grad">site no ar?</span></h2>
-      <p>Me chame para um orçamento sem compromisso. Respondo com uma proposta clara, com valor e prazo.</p>
+      <h2>Vamos <span class="grad">conversar?</span></h2>
+      <p>Quer trocar uma ideia sobre tecnologia, projetos ou oportunidades? Me chame por qualquer um destes canais.</p>
       <div class="acoes">
-        <a class="btn btn-main js-orcamento" href="#">Pedir orçamento</a>
+        <a class="btn btn-main js-contato" href="#">E-mail</a>
         <a class="btn btn-line" href="https://www.linkedin.com/in/gabrielaesaguiar/" target="_blank" rel="noopener">LinkedIn</a>
         <a class="btn btn-line" href="https://github.com/Raiugami" target="_blank" rel="noopener">GitHub</a>
-      </div>
-      <div class="sociais">
-        <a href="https://instagram.com/aguiar.py" target="_blank" rel="noopener">Instagram @aguiar.py</a>
-        <a href="https://github.com/Raiugami" target="_blank" rel="noopener">github.com/Raiugami</a>
-        <a href="https://www.linkedin.com/in/gabrielaesaguiar/" target="_blank" rel="noopener">linkedin.com/in/gabrielaesaguiar</a>
+        <a class="btn btn-line" href="https://instagram.com/aguiar.py" target="_blank" rel="noopener">Instagram</a>
       </div>
     </div>
   </div>
@@ -252,19 +272,10 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 
 <script>
   // ====== CONFIGURE AQUI ======
-  // WhatsApp: DDI+DDD+número, só dígitos. Ex.: "5511999999999". Vazio = botões levam ao e-mail.
-  const WHATSAPP = "";
-  const EMAIL    = "aguiar_seven@gmail.com";
-  const MENSAGEM = "Olá, Gabriel! Vim pelo seu site e gostaria de pedir um orçamento.";
+  const EMAIL = "aguiar_seven@gmail.com";
   // ============================
 
-  const link = WHATSAPP
-    ? "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(MENSAGEM)
-    : "mailto:" + EMAIL + "?subject=" + encodeURIComponent("Orçamento de site") + "&body=" + encodeURIComponent(MENSAGEM);
-  document.querySelectorAll(".js-orcamento").forEach(a => {
-    a.href = link;
-    if (WHATSAPP) { a.target = "_blank"; a.rel = "noopener"; }
-  });
+  document.querySelectorAll(".js-contato").forEach(a => { a.href = "mailto:" + EMAIL; });
   document.getElementById("year").textContent = new Date().getFullYear();
 
   const hd = document.querySelector("header");

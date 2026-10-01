@@ -1,6 +1,6 @@
 # Gabriel Aguiar | Portfólio
 
-Portfólio pessoal do **Gabriel Aguiar**, desenvolvedor, apresentando o serviço de criação de sites para profissionais de atendimento e os projetos publicados.
+Portfólio pessoal do **Gabriel Aguiar**, desenvolvedor Java, com apresentação, stack e projetos.
 
 - **Site publicado:** https://imaguiar.com.br/
 - **GitHub:** [Raiugami](https://github.com/Raiugami)
@@ -9,9 +9,9 @@ Portfólio pessoal do **Gabriel Aguiar**, desenvolvedor, apresentando o serviço
 
 ## Sobre o projeto
 
-Página única (one-page), com visual escuro e moderno, responsiva. Seções: apresentação, trabalhos publicados, o que está incluso no serviço, como funciona o processo e contato.
+Página única (one-page), com visual escuro e moderno, responsiva. Seções: apresentação, sobre, stack, projetos e contato.
 
-Projetos exibidos:
+Projetos em destaque: Organização financeira, Relatório de protocolos, Meus dias, testes com Robot Framework e dois sites feitos para clientes:
 - Isabella Garcia | Estética: https://isabella.imaguiar.com.br/
 - Patrícia Lima | Harmonia das Orelhas: https://patricia.imaguiar.com.br/
 
@@ -32,11 +32,7 @@ Projetos exibidos:
 
 ## Como personalizar
 
-No `<script>` do final do `index.html`:
-
-- `WHATSAPP`: número com DDI+DDD, só dígitos (ex.: `"5511999999999"`). Vazio, os botões de orçamento abrem o e-mail.
-- `EMAIL`: e-mail de contato.
-- `MENSAGEM`: texto pronto do orçamento.
+No `<script>` do final do `index.html`, troque a constante `EMAIL`. Os cards de projeto ficam na seção `#projetos`.
 
 ## Como rodar localmente
 
