@@ -16,6 +16,7 @@
   --txt:#ececf3; --muted:#9a9ab0; --violet:#7c5cff; --cyan:#22d3ee; --pink:#f472b6;
   --grad:linear-gradient(120deg,#7c5cff,#22d3ee);
   --raio:18px;
+  --ease:cubic-bezier(.22,1,.36,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -327,7 +328,7 @@ nav a:hover{color:var(--txt)}
 .sociais a:hover{color:var(--cyan)}
 footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem;border-top:1px solid var(--line)}
 
-.reveal{opacity:0;transform:translateY(26px);transition:opacity .8s,transform .8s}
+.reveal{opacity:0;transform:translateY(12px);transition:opacity .48s var(--ease),transform .48s var(--ease)}
 .reveal.in{opacity:1;transform:none}
 @media(max-width:860px){
   .grid2,.grid3,.passos{grid-template-columns:1fr}
@@ -399,9 +400,9 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 
 <section id="sobre">
   <div class="wrap">
-    <span class="tag reveal">// sobre</span>
-    <h2 class="reveal">Um pouco <span class="grad">sobre mim</span></h2>
-    <div class="sobre reveal">
+    <span class="tag">// sobre</span>
+    <h2>Um pouco <span class="grad">sobre mim</span></h2>
+    <div class="sobre">
       <p>Graduado em Sistemas de Informação, comecei a carreira em tecnologia como estagiário e hoje sou Systems Engineer na Minsait, multinacional em São Paulo. Tenho afinidade com Oracle PL/SQL e desenvolvimento back-end, com foco em soluções robustas e escaláveis.</p>
       <p>Estou sempre buscando evoluir em desenvolvimento de sistemas, bancos de dados e arquitetura de microsserviços. Fora do trabalho, crio projetos pessoais em JavaScript, TypeScript e Python, de um controle financeiro a um app de conversas com voz e vídeo.</p>
       <p>Também crio sites para profissionais autônomos, com HTML, CSS e JavaScript puros, publicados no GitHub Pages.</p>
@@ -412,10 +413,10 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 
 <section id="experiencia">
   <div class="wrap">
-    <span class="tag reveal">// experiência</span>
-    <h2 class="reveal">Minha <span class="grad">trajetória</span></h2>
-    <p class="sub reveal">Uma linha do tempo de verdade. Clique nos cards para ver os detalhes de cada fase.</p>
-    <div class="tl-filtros reveal" id="tlFiltros">
+    <span class="tag">// experiência</span>
+    <h2>Minha <span class="grad">trajetória</span></h2>
+    <p class="sub">Uma linha do tempo de verdade. Clique nos cards para ver os detalhes de cada fase.</p>
+    <div class="tl-filtros" id="tlFiltros">
       <button class="on" data-f="todos">Tudo</button><button data-f="trabalho">Trabalho</button><button data-f="estudo">Estudo</button><button data-f="conquista">Conquistas</button>
     </div>
     <div class="tl" id="tl">
@@ -510,9 +511,9 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 
 <section id="stack">
   <div class="wrap">
-    <span class="tag reveal">// stack</span>
-    <h2 class="reveal">Com o que eu <span class="grad">trabalho</span></h2>
-    <p class="sub reveal">Tecnologias que uso no trabalho e nos projetos pessoais.</p>
+    <span class="tag">// stack</span>
+    <h2>Com o que eu <span class="grad">trabalho</span></h2>
+    <p class="sub">Tecnologias que uso no trabalho e nos projetos pessoais.</p>
     <div class="grid3">
       <div class="card reveal"><div class="ico">☕</div><h3>Back-end</h3><p>Java 8+, Spring Boot, microsserviços, APIs REST e mensageria com Kafka.</p></div>
       <div class="card reveal"><div class="ico">▤</div><h3>Banco de dados</h3><p>Oracle, SQL e PL/SQL: scripts, otimização e monitoramento de bases.</p></div>
@@ -527,9 +528,9 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 
 <section id="ia">
   <div class="wrap">
-    <span class="tag reveal">// inteligência artificial</span>
-    <h2 class="reveal">IA no meu <span class="grad">dia a dia</span></h2>
-    <p class="sub reveal">Para mim, IA é uma ferramenta de trabalho: acelera o que eu já sei fazer e abre caminho para o que ainda estou aprendendo.</p>
+    <span class="tag">// inteligência artificial</span>
+    <h2>IA no meu <span class="grad">dia a dia</span></h2>
+    <p class="sub">Para mim, IA é uma ferramenta de trabalho: acelera o que eu já sei fazer e abre caminho para o que ainda estou aprendendo.</p>
     <div class="grid3">
       <div class="card reveal"><div class="ico">✦</div><h3>Construindo com IA</h3><p>Uso assistentes de código, como o Claude Code, para prototipar, revisar e publicar projetos, inclusive este portfólio e os sites que criei.</p></div>
       <div class="card reveal"><div class="ico">⌘</div><h3>Automação inteligente</h3><p>Combino scripts e ferramentas do dia a dia com IA para eliminar tarefas repetitivas e conferir dados com mais segurança.</p></div>
@@ -540,9 +541,9 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 
 <section id="projetos">
   <div class="wrap">
-    <span class="tag reveal">// projetos</span>
-    <h2 class="reveal">Alguns <span class="grad">projetos</span></h2>
-    <p class="sub reveal">Projetos pessoais e sites que criei. As animações são demonstrações ilustrativas de como cada app é usado, e os links abrem as aplicações de verdade.</p>
+    <span class="tag">// projetos</span>
+    <h2>Alguns <span class="grad">projetos</span></h2>
+    <p class="sub">Projetos pessoais e sites que criei. As animações são demonstrações ilustrativas de como cada app é usado, e os links abrem as aplicações de verdade.</p>
     <div class="grid2">
       <article class="proj proj-wide reveal">
         <div class="thumb dc-thumb"><div class="barra"><i></i><i></i><i></i><em>discordo</em></div><span class="ilus">demonstração ilustrativa</span>
@@ -627,7 +628,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
       </article>
     </div>
 
-    <div class="car-head reveal">
+    <div class="car-head">
       <div><span class="tag">// sites para clientes</span><h2>Sites que <span class="grad">criei</span></h2></div>
       <div class="car-ctrl"><button id="carPrev" aria-label="Anterior">←</button><button id="carNext" aria-label="Próximo">→</button></div>
     </div>
@@ -657,7 +658,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
         </div>
       </article>
     </div>
-    <p class="deck-dica reveal">Arraste a carta, use as setas ou toque nas bolinhas para ver o próximo site.</p>
+    <p class="deck-dica">Arraste a carta, use as setas ou toque nas bolinhas para ver o próximo site.</p>
     <div class="car-dots" id="carDots"></div>
   </div>
 </section>
