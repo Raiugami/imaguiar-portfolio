@@ -206,6 +206,27 @@ nav a:hover{color:var(--txt)}
 .formacao .ico{margin:0}.formacao h3{font-size:1.1rem}.formacao p{color:var(--muted);font-size:.9rem}
 @media(max-width:860px){.grid4{grid-template-columns:repeat(2,1fr)}.tl-item{grid-template-columns:1fr;gap:10px}}
 
+
+.thumb .barra em{max-width:52%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+/* apps e carrossel */
+.grid-apps{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:24px}
+.grid-apps .proj .info{padding:22px}
+.grid-apps .proj .info p{font-size:.88rem}
+.car-head{display:flex;justify-content:space-between;align-items:flex-end;margin:80px 0 24px;gap:20px}
+.car-head h2{margin-bottom:0}
+.car-ctrl{display:flex;gap:10px}
+.car-ctrl button{width:46px;height:46px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.04);color:var(--txt);font-size:1.1rem;cursor:pointer;transition:.25s}
+.car-ctrl button:hover{border-color:var(--violet);background:rgba(124,92,255,.15)}
+.car-ctrl button:disabled{opacity:.35;cursor:default}
+.carousel{display:flex;gap:24px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;padding-bottom:6px;scrollbar-width:none}
+.carousel::-webkit-scrollbar{display:none}
+.carousel .slide{flex:0 0 68%;scroll-snap-align:start}
+.car-dots{display:flex;gap:8px;justify-content:center;margin-top:20px}
+.car-dots i{width:8px;height:8px;border-radius:99px;background:rgba(255,255,255,.2);cursor:pointer;transition:.3s}
+.car-dots i.on{width:26px;background:var(--grad)}
+@media(max-width:1000px){.grid-apps{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:860px){.grid-apps{grid-template-columns:1fr}.carousel .slide{flex-basis:88%}.car-head{align-items:center}}
+
 /* sobre */
 .sobre{max-width:720px;display:grid;gap:18px;color:var(--muted);font-size:1.05rem}
 .sobre p:first-child{color:var(--txt)}
@@ -438,6 +459,8 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
           <div class="links"><a class="ver" href="https://discordo-raiu.duckdns.org:8090/" target="_blank" rel="noopener">Conhecer o app <span>↗</span></a></div>
         </div>
       </article>
+    </div>
+    <div class="grid-apps">
       <article class="proj reveal">
         <div class="thumb dark"><div class="barra"><i></i><i></i><i></i><em>organizacao-financeira</em></div><span class="ilus">demonstração ilustrativa</span>
           <div class="tela demo fin" data-demo="fin">
@@ -483,7 +506,14 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
           <div class="links"><a class="ver" href="https://raiugami.github.io/meus-dias/" target="_blank" rel="noopener">Abrir ao vivo <span>↗</span></a><a class="ver ver2" href="https://github.com/Raiugami/meus-dias" target="_blank" rel="noopener">Código <span>↗</span></a></div>
         </div>
       </article>
-      <article class="proj reveal">
+    </div>
+
+    <div class="car-head reveal">
+      <div><span class="tag">// sites para clientes</span><h2>Sites que <span class="grad">criei</span></h2></div>
+      <div class="car-ctrl"><button id="carPrev" aria-label="Anterior">←</button><button id="carNext" aria-label="Próximo">→</button></div>
+    </div>
+    <div class="carousel reveal" id="carousel">
+      <article class="proj slide">
         <div class="thumb">
           <div class="barra"><i></i><i></i><i></i><em>isabella.imaguiar.com.br</em></div>
           <div class="tela rola"><iframe style="height:3200px" src="https://isabella.imaguiar.com.br/" title="Prévia de Site: Isabella Garcia | Estética" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
@@ -495,7 +525,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
           <div class="links"><a class="ver" href="https://isabella.imaguiar.com.br/" target="_blank" rel="noopener">Abrir ao vivo <span>↗</span></a><a class="ver ver2" href="https://github.com/Raiugami/isabella-garcia-estetica" target="_blank" rel="noopener">Código <span>↗</span></a></div>
         </div>
       </article>
-      <article class="proj reveal">
+      <article class="proj slide">
         <div class="thumb">
           <div class="barra"><i></i><i></i><i></i><em>patricia.imaguiar.com.br</em></div>
           <div class="tela rola"><iframe style="height:3200px" src="https://patricia.imaguiar.com.br/" title="Prévia de Site: Harmonia das Orelhas" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
@@ -507,15 +537,8 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
           <div class="links"><a class="ver" href="https://patricia.imaguiar.com.br/" target="_blank" rel="noopener">Abrir ao vivo <span>↗</span></a><a class="ver ver2" href="https://github.com/Raiugami/patricia-harmonia-das-orelhas" target="_blank" rel="noopener">Código <span>↗</span></a></div>
         </div>
       </article>
-      <article class="proj reveal">
-        <div class="info">
-          <h3>Testes com Robot Framework</h3>
-          <p>Repositório de estudo de testes automatizados com Robot Framework.</p>
-          <div class="chips"><span>Robot Framework</span><span>automação</span></div>
-          <div class="links"><a class="ver" href="https://github.com/Raiugami/Robot-framework" target="_blank" rel="noopener">Ver no GitHub <span>↗</span></a></div>
-        </div>
-      </article>
     </div>
+    <div class="car-dots" id="carDots"></div>
   </div>
 </section>
 
@@ -649,6 +672,24 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
     if (e.isIntersecting && !el.dataset.rodando) { el.dataset.rodando = "1"; (async () => { while (true) { await demos[k](el, () => vivo.get(el)); await sleep(400); } })(); }
   }), { threshold: .25 });
   document.querySelectorAll("[data-demo]").forEach(el => ioDemo.observe(el));
+
+  // ====== carrossel de sites ======
+  (() => {
+    const car = document.getElementById("carousel"); if (!car) return;
+    const slides = [...car.children], dots = document.getElementById("carDots");
+    const prev = document.getElementById("carPrev"), next = document.getElementById("carNext");
+    slides.forEach((_, i) => { const d = document.createElement("i"); d.onclick = () => ir(i); dots.append(d); });
+    const passo = () => slides[0].offsetWidth + 24;
+    const idx = () => Math.round(car.scrollLeft / passo());
+    const ir = i => car.scrollTo({ left: Math.max(0, Math.min(slides.length - 1, i)) * passo() });
+    const atualiza = () => {
+      const i = idx(), max = car.scrollWidth - car.clientWidth - 2;
+      [...dots.children].forEach((d, k) => d.classList.toggle("on", k === i));
+      prev.disabled = car.scrollLeft <= 2; next.disabled = car.scrollLeft >= max;
+    };
+    prev.onclick = () => ir(idx() - 1); next.onclick = () => ir(idx() + 1);
+    car.addEventListener("scroll", atualiza, { passive: true }); addEventListener("resize", atualiza); atualiza();
+  })();
 </script>
 </body>
 </html>
