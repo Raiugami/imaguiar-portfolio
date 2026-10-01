@@ -1,6 +1,6 @@
 # Gabriel Aguiar | Portfólio
 
-Portfólio pessoal do **Gabriel Aguiar**, desenvolvedor Java, com apresentação, stack e projetos.
+Portfólio pessoal do **Gabriel Aguiar**, Systems Engineer na Minsait (Java, Oracle, SQL e PL/SQL), com apresentação, stack e projetos.
 
 - **Site publicado:** https://imaguiar.com.br/
 - **GitHub:** [Raiugami](https://github.com/Raiugami)
