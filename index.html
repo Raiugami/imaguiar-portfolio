@@ -90,6 +90,8 @@ nav a:hover{color:var(--txt)}
 
 /* hero com foto */
 .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.hero-txt{grid-column:1;grid-row:1}
+.hero-grid .foto{grid-column:2;grid-row:1}
 .foto{position:relative;aspect-ratio:4/5;max-width:380px;justify-self:end;width:100%}
 .foto img{position:relative;width:100%;height:100%;object-fit:cover;object-position:50% 30%;border-radius:28px;border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(124,92,255,.55)}
 .foto-ring{position:absolute;inset:-14px;border-radius:36px;background:var(--grad);opacity:.35;filter:blur(26px);animation:flutua 6s ease-in-out infinite}
@@ -106,8 +108,14 @@ nav a:hover{color:var(--txt)}
 .ver2{color:var(--muted)}
 .links .ver2:hover{color:var(--cyan)}
 @media(max-width:860px){
-  .hero-grid{grid-template-columns:1fr;gap:40px}
-  .foto{justify-self:start;max-width:280px}
+  .hero-grid{display:block}
+  .hero-grid .foto{float:right;width:36%;max-width:150px;margin:6px 0 10px 16px;border-radius:20px}
+  .foto img,.foto.sem-foto{border-radius:20px}
+  .foto-ring{inset:-8px;border-radius:26px;filter:blur(18px)}
+  .hero h1{font-size:clamp(2rem,9vw,2.6rem);margin-bottom:18px}
+  .hero .pill{margin-bottom:18px;font-size:.74rem}
+  .hero-txt .acoes,.hero-txt .stack{clear:both}
+  .hero{padding-top:100px}
 }
 
 .proj-wide{grid-column:1/-1;background:linear-gradient(135deg,rgba(124,92,255,.14),rgba(34,211,238,.06)),var(--card);border-color:rgba(124,92,255,.35)}
@@ -359,7 +367,12 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 <main>
 <section class="hero">
   <div class="wrap hero-grid">
-    <div>
+    <div class="foto" aria-hidden="false">
+      <div class="foto-ring"></div>
+      <img src="img/gabriel.png" alt="Foto de Gabriel Aguiar" width="400" height="400" onerror="this.parentNode.classList.add('sem-foto');this.remove()">
+      <span class="ga">GA</span>
+    </div>
+    <div class="hero-txt">
       <div class="pill"><span class="dot"></span> Systems Engineer · Minsait · Mauá, SP</div>
       <h1>Oi, eu sou o <span class="grad">Gabriel Aguiar</span>.</h1>
       <p>Systems Engineer na Minsait, com Java, Oracle, SQL e PL/SQL. Fora do trabalho, gosto de transformar problemas do dia a dia em ferramentas simples, e uso inteligência artificial para construir, testar e aprender mais rápido.</p>
@@ -369,11 +382,6 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
         <a href="https://www.linkedin.com/in/gabrielaesaguiar/" class="btn btn-line" target="_blank" rel="noopener">LinkedIn ↗</a>
       </div>
       <div class="stack"><span>Java</span><span>Oracle</span><span>SQL</span><span>PL/SQL</span><span>JavaScript</span><span>TypeScript</span><span>Python</span><span>IA</span></div>
-    </div>
-    <div class="foto" aria-hidden="false">
-      <div class="foto-ring"></div>
-      <img src="img/gabriel.png" alt="Foto de Gabriel Aguiar" width="400" height="400" onerror="this.parentNode.classList.add('sem-foto');this.remove()">
-      <span class="ga">GA</span>
     </div>
   </div>
 </section>
