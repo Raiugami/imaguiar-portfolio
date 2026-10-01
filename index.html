@@ -85,7 +85,30 @@ nav a:hover{color:var(--txt)}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:8px}
 .chips span{font:400 .72rem 'JetBrains Mono',monospace;color:var(--cyan);padding:4px 10px;border-radius:6px;background:rgba(34,211,238,.08)}
 .ver{font-weight:500;color:var(--txt);margin-top:6px;display:inline-flex;gap:8px;align-items:center}
-.proj:hover .ver{color:var(--cyan)}
+.ver:hover{color:var(--cyan)}
+
+
+/* hero com foto */
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:56px;align-items:center}
+.foto{position:relative;aspect-ratio:4/5;max-width:380px;justify-self:end;width:100%}
+.foto img{position:relative;width:100%;height:100%;object-fit:cover;border-radius:28px;border:1px solid var(--line);box-shadow:0 40px 80px -30px rgba(124,92,255,.55)}
+.foto-ring{position:absolute;inset:-14px;border-radius:36px;background:var(--grad);opacity:.35;filter:blur(26px);animation:flutua 6s ease-in-out infinite}
+@keyframes flutua{50%{transform:scale(1.04) rotate(2deg);opacity:.5}}
+.foto .ga{display:none}
+.foto.sem-foto{display:grid;place-items:center;border-radius:28px;border:1px solid var(--line);background:linear-gradient(160deg,rgba(124,92,255,.25),rgba(34,211,238,.12))}
+.foto.sem-foto .ga{display:block;position:relative;font:700 clamp(4rem,10vw,7rem) 'Space Grotesk',sans-serif}
+/* previa ao vivo */
+.proj .thumb{aspect-ratio:16/10;background:#fff}
+.tela{position:absolute;inset:30px 0 0;overflow:hidden;background:#fff}
+.tela iframe{position:absolute;top:0;left:0;width:1280px;height:800px;border:0;transform-origin:0 0;pointer-events:none;background:#fff}
+.links{display:flex;flex-wrap:wrap;gap:18px;margin-top:6px}
+.links .ver{margin-top:0}
+.ver2{color:var(--muted)}
+.links .ver2:hover{color:var(--cyan)}
+@media(max-width:860px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .foto{justify-self:start;max-width:280px}
+}
 
 /* sobre */
 .sobre{max-width:720px;display:grid;gap:18px;color:var(--muted);font-size:1.05rem}
@@ -144,6 +167,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
       <ul id="menu">
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#stack">Stack</a></li>
+        <li><a href="#ia">IA</a></li>
         <li><a href="#projetos">Projetos</a></li>
         <li><a href="#contato">Contato</a></li>
       </ul>
@@ -155,16 +179,23 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 
 <main>
 <section class="hero">
-  <div class="wrap">
-    <div class="pill"><span class="dot"></span> Systems Engineer · Minsait · Mauá, SP</div>
-    <h1>Oi, eu sou o <span class="grad">Gabriel Aguiar</span>.</h1>
-    <p>Systems Engineer na Minsait, com Java, Oracle, SQL e PL/SQL. Fora do trabalho, gosto de transformar problemas do dia a dia em ferramentas simples, com JavaScript, TypeScript e Python, e de manter tudo publicado e acessível.</p>
-    <div class="acoes">
-      <a href="#projetos" class="btn btn-main">Ver projetos →</a>
-      <a href="https://github.com/Raiugami" class="btn btn-line" target="_blank" rel="noopener">GitHub ↗</a>
-      <a href="https://www.linkedin.com/in/gabrielaesaguiar/" class="btn btn-line" target="_blank" rel="noopener">LinkedIn ↗</a>
+  <div class="wrap hero-grid">
+    <div>
+      <div class="pill"><span class="dot"></span> Systems Engineer · Minsait · Mauá, SP</div>
+      <h1>Oi, eu sou o <span class="grad">Gabriel Aguiar</span>.</h1>
+      <p>Systems Engineer na Minsait, com Java, Oracle, SQL e PL/SQL. Fora do trabalho, gosto de transformar problemas do dia a dia em ferramentas simples, e uso inteligência artificial para construir, testar e aprender mais rápido.</p>
+      <div class="acoes">
+        <a href="#projetos" class="btn btn-main">Ver projetos →</a>
+        <a href="https://github.com/Raiugami" class="btn btn-line" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/gabrielaesaguiar/" class="btn btn-line" target="_blank" rel="noopener">LinkedIn ↗</a>
+      </div>
+      <div class="stack"><span>Java</span><span>Oracle</span><span>SQL</span><span>PL/SQL</span><span>JavaScript</span><span>TypeScript</span><span>Python</span><span>IA</span></div>
     </div>
-    <div class="stack"><span>Java</span><span>Oracle</span><span>SQL</span><span>PL/SQL</span><span>JavaScript</span><span>TypeScript</span><span>Python</span></div>
+    <div class="foto" aria-hidden="false">
+      <div class="foto-ring"></div>
+      <img src="img/gabriel.jpg" alt="Foto de Gabriel Aguiar" width="420" height="520" onerror="this.parentNode.classList.add('sem-foto');this.remove()">
+      <span class="ga">GA</span>
+    </div>
   </div>
 </section>
 
@@ -193,60 +224,94 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
   </div>
 </section>
 
+
+<section id="ia">
+  <div class="wrap">
+    <span class="tag reveal">// inteligência artificial</span>
+    <h2 class="reveal">IA no meu <span class="grad">dia a dia</span></h2>
+    <p class="sub reveal">Para mim, IA é uma ferramenta de trabalho: acelera o que eu já sei fazer e abre caminho para o que ainda estou aprendendo.</p>
+    <div class="grid3">
+      <div class="card reveal"><div class="ico">✦</div><h3>Construindo com IA</h3><p>Uso assistentes de código, como o Claude Code, para prototipar, revisar e publicar projetos, inclusive este portfólio e os sites que criei.</p></div>
+      <div class="card reveal"><div class="ico">⌘</div><h3>Automação inteligente</h3><p>Combino scripts e ferramentas do dia a dia com IA para eliminar tarefas repetitivas e conferir dados com mais segurança.</p></div>
+      <div class="card reveal"><div class="ico">∞</div><h3>Sempre aprendendo</h3><p>Acompanho a evolução dos modelos, agentes e ferramentas de IA, e testo o que faz sentido na prática, sempre revisando o resultado.</p></div>
+    </div>
+  </div>
+</section>
+
 <section id="projetos">
   <div class="wrap">
     <span class="tag reveal">// projetos</span>
     <h2 class="reveal">Alguns <span class="grad">projetos</span></h2>
-    <p class="sub reveal">Projetos pessoais e sites que criei. O código está no GitHub.</p>
+    <p class="sub reveal">Projetos pessoais e sites que criei. As prévias abaixo são as aplicações rodando ao vivo.</p>
     <div class="grid2">
-      <a class="proj reveal" href="https://github.com/Raiugami/organizacao-financeira" target="_blank" rel="noopener">
+      <article class="proj reveal">
+        <div class="thumb">
+          <div class="barra"><i></i><i></i><i></i><em>raiugami.github.io/organizacao-financeira</em></div>
+          <div class="tela"><iframe src="https://raiugami.github.io/organizacao-financeira/" title="Prévia de Organização financeira" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+        </div>
         <div class="info">
           <h3>Organização financeira</h3>
           <p>Aplicação web para controle financeiro, investimentos e caixinhas.</p>
           <div class="chips"><span>HTML</span><span>JavaScript</span></div>
-          <span class="ver">Ver no GitHub <span>↗</span></span>
+          <div class="links"><a class="ver" href="https://raiugami.github.io/organizacao-financeira/" target="_blank" rel="noopener">Abrir ao vivo <span>↗</span></a><a class="ver ver2" href="https://github.com/Raiugami/organizacao-financeira" target="_blank" rel="noopener">Código <span>↗</span></a></div>
         </div>
-      </a>
-      <a class="proj reveal" href="https://github.com/Raiugami/relatorio-protocolos" target="_blank" rel="noopener">
+      </article>
+      <article class="proj reveal">
+        <div class="thumb">
+          <div class="barra"><i></i><i></i><i></i><em>raiugami.github.io/relatorio-protocolos</em></div>
+          <div class="tela"><iframe src="https://raiugami.github.io/relatorio-protocolos/" title="Prévia de Relatório de protocolos" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+        </div>
         <div class="info">
           <h3>Relatório de protocolos</h3>
           <p>Relatório gerencial com calendário mensal, metas configuráveis, projeção, gráficos, ranking e backup em JSON. Salva localmente e funciona offline.</p>
           <div class="chips"><span>HTML</span><span>JavaScript</span><span>offline</span></div>
-          <span class="ver">Ver no GitHub <span>↗</span></span>
+          <div class="links"><a class="ver" href="https://raiugami.github.io/relatorio-protocolos/" target="_blank" rel="noopener">Abrir ao vivo <span>↗</span></a><a class="ver ver2" href="https://github.com/Raiugami/relatorio-protocolos" target="_blank" rel="noopener">Código <span>↗</span></a></div>
         </div>
-      </a>
-      <a class="proj reveal" href="https://github.com/Raiugami/meus-dias" target="_blank" rel="noopener">
+      </article>
+      <article class="proj reveal">
+        <div class="thumb">
+          <div class="barra"><i></i><i></i><i></i><em>raiugami.github.io/meus-dias</em></div>
+          <div class="tela"><iframe src="https://raiugami.github.io/meus-dias/" title="Prévia de Meus dias" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+        </div>
         <div class="info">
           <h3>Meus dias</h3>
           <p>Calendário de diárias com resumo mensal, visual natalino e backup local.</p>
           <div class="chips"><span>HTML</span><span>JavaScript</span></div>
-          <span class="ver">Ver no GitHub <span>↗</span></span>
+          <div class="links"><a class="ver" href="https://raiugami.github.io/meus-dias/" target="_blank" rel="noopener">Abrir ao vivo <span>↗</span></a><a class="ver ver2" href="https://github.com/Raiugami/meus-dias" target="_blank" rel="noopener">Código <span>↗</span></a></div>
         </div>
-      </a>
-      <a class="proj reveal" href="https://github.com/Raiugami/Robot-framework" target="_blank" rel="noopener">
-        <div class="info">
-          <h3>Testes com Robot Framework</h3>
-          <p>Repositório de estudo de testes automatizados com Robot Framework.</p>
-          <div class="chips"><span>Robot Framework</span><span>automação</span></div>
-          <span class="ver">Ver no GitHub <span>↗</span></span>
+      </article>
+      <article class="proj reveal">
+        <div class="thumb">
+          <div class="barra"><i></i><i></i><i></i><em>isabella.imaguiar.com.br</em></div>
+          <div class="tela"><iframe src="https://isabella.imaguiar.com.br/" title="Prévia de Site: Isabella Garcia | Estética" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
         </div>
-      </a>
-      <a class="proj reveal" href="https://isabella.imaguiar.com.br/" target="_blank" rel="noopener">
         <div class="info">
           <h3>Site: Isabella Garcia | Estética</h3>
           <p>Site de uma página para esteticista, com serviços, resultados do Instagram, feedbacks, mapa e dúvidas frequentes.</p>
           <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          <span class="ver">Visitar site <span>↗</span></span>
+          <div class="links"><a class="ver" href="https://isabella.imaguiar.com.br/" target="_blank" rel="noopener">Abrir ao vivo <span>↗</span></a><a class="ver ver2" href="https://github.com/Raiugami/isabella-garcia-estetica" target="_blank" rel="noopener">Código <span>↗</span></a></div>
         </div>
-      </a>
-      <a class="proj reveal" href="https://patricia.imaguiar.com.br/" target="_blank" rel="noopener">
+      </article>
+      <article class="proj reveal">
+        <div class="thumb">
+          <div class="barra"><i></i><i></i><i></i><em>patricia.imaguiar.com.br</em></div>
+          <div class="tela"><iframe src="https://patricia.imaguiar.com.br/" title="Prévia de Site: Harmonia das Orelhas" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+        </div>
         <div class="info">
           <h3>Site: Harmonia das Orelhas</h3>
           <p>Site institucional para especialista em furo humanizado, com serviços, galeria e botão fixo de WhatsApp.</p>
           <div class="chips"><span>HTML</span><span>CSS</span><span>JavaScript</span></div>
-          <span class="ver">Visitar site <span>↗</span></span>
+          <div class="links"><a class="ver" href="https://patricia.imaguiar.com.br/" target="_blank" rel="noopener">Abrir ao vivo <span>↗</span></a><a class="ver ver2" href="https://github.com/Raiugami/patricia-harmonia-das-orelhas" target="_blank" rel="noopener">Código <span>↗</span></a></div>
         </div>
-      </a>
+      </article>
+      <article class="proj reveal">
+        <div class="info">
+          <h3>Testes com Robot Framework</h3>
+          <p>Repositório de estudo de testes automatizados com Robot Framework.</p>
+          <div class="chips"><span>Robot Framework</span><span>automação</span></div>
+          <div class="links"><a class="ver" href="https://github.com/Raiugami/Robot-framework" target="_blank" rel="noopener">Ver no GitHub <span>↗</span></a></div>
+        </div>
+      </article>
     </div>
   </div>
 </section>
@@ -290,6 +355,12 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
     if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
   }), { threshold: .12 });
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  const escalar = () => document.querySelectorAll(".tela").forEach(t => {
+    const f = t.querySelector("iframe");
+    if (f) f.style.transform = "scale(" + (t.clientWidth / 1280) + ")";
+  });
+  escalar(); addEventListener("resize", escalar);
 </script>
 </body>
 </html>
