@@ -2,7 +2,7 @@
 
 Portfólio pessoal do **Gabriel Aguiar**, Systems Engineer na Minsait (Java, Oracle, SQL e PL/SQL), com apresentação, stack e projetos.
 
-- **Site publicado:** https://imaguiar.com.br/
+- **Site publicado:** https://raiugami.github.io/imaguiar-portfolio/ (domínio próprio `imaguiar.com.br` em configuração)
 - **GitHub:** [Raiugami](https://github.com/Raiugami)
 - **LinkedIn:** [gabrielaesaguiar](https://www.linkedin.com/in/gabrielaesaguiar/)
 - **Instagram:** [@aguiar.py](https://instagram.com/aguiar.py)
