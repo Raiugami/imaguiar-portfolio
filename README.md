@@ -11,7 +11,7 @@ Portfólio pessoal do **Gabriel Aguiar**, Systems Engineer na Minsait (Java, Ora
 
 Página única (one-page), com visual escuro e moderno, responsiva. Seções: apresentação, sobre, stack, projetos e contato.
 
-Projetos em destaque: Organização financeira, Relatório de protocolos, Meus dias, testes com Robot Framework e dois sites feitos para clientes:
+Projetos em destaque: Discordo (app de conversas com voz e vídeo), Organização financeira, Relatório de protocolos, Meus dias, testes com Robot Framework e dois sites feitos para clientes:
 - Isabella Garcia | Estética: https://isabella.imaguiar.com.br/
 - Patrícia Lima | Harmonia das Orelhas: https://patricia.imaguiar.com.br/
 

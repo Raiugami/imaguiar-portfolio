@@ -110,6 +110,9 @@ nav a:hover{color:var(--txt)}
   .foto{justify-self:start;max-width:280px}
 }
 
+.proj-wide{grid-column:1/-1;background:linear-gradient(135deg,rgba(124,92,255,.14),rgba(34,211,238,.06)),var(--card);border-color:rgba(124,92,255,.35)}
+.proj-wide .info{padding:34px}
+.proj-wide .info p{max-width:760px}
 /* sobre */
 .sobre{max-width:720px;display:grid;gap:18px;color:var(--muted);font-size:1.05rem}
 .sobre p:first-child{color:var(--txt)}
@@ -244,6 +247,15 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
     <h2 class="reveal">Alguns <span class="grad">projetos</span></h2>
     <p class="sub reveal">Projetos pessoais e sites que criei. As prévias abaixo são as aplicações rodando ao vivo.</p>
     <div class="grid2">
+      <article class="proj proj-wide reveal">
+        <div class="info">
+          <span class="tag">// destaque</span>
+          <h3>Discordo</h3>
+          <p>App de conversas com texto, voz, vídeo e compartilhamento de tela, inspirado no Discord, feito para um grupo de amigos. Tem servidor próprio (Spring Boot, PostgreSQL e LiveKit), cliente para Windows e Android e atualização automática. O código é privado.</p>
+          <div class="chips"><span>TypeScript</span><span>Spring Boot</span><span>PostgreSQL</span><span>LiveKit</span><span>Windows</span><span>Android</span></div>
+          <div class="links"><a class="ver" href="https://discordo-raiu.duckdns.org:8090/" target="_blank" rel="noopener">Conhecer o app <span>↗</span></a></div>
+        </div>
+      </article>
       <article class="proj reveal">
         <div class="thumb">
           <div class="barra"><i></i><i></i><i></i><em>raiugami.github.io/organizacao-financeira</em></div>
