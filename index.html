@@ -231,6 +231,20 @@ nav a:hover{color:var(--txt)}
 @media(max-width:1000px){.grid-apps{grid-template-columns:repeat(2,1fr)}.carousel .slide{flex-basis:min(400px,60%)}}
 @media(max-width:860px){.grid-apps{grid-template-columns:1fr}.carousel .slide{flex-basis:84%}.car-head{align-items:center}}
 
+
+/* baralho de sites */
+.deck{position:relative;width:min(420px,calc(100% - 44px));margin:10px auto 0;touch-action:pan-y;user-select:none}
+.carta{position:absolute;top:0;left:0;width:100%;transform-origin:50% 100%;transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .35s;will-change:transform;box-shadow:0 24px 50px -28px rgba(0,0,0,.9)}
+.carta .thumb{aspect-ratio:16/11}
+.carta .info{padding:20px}
+.carta .info h3{font-size:1.15rem}
+.carta .info p{font-size:.86rem}
+.carta:not(.topo){pointer-events:none}
+.carta:not(.topo) .info,.carta:not(.topo) .thumb{filter:brightness(.7)}
+.carta.topo{cursor:grab}.carta.topo.arrasta{cursor:grabbing;transition:none}
+.deck-dica{text-align:center;color:var(--muted);font-size:.82rem;margin-top:14px}
+@media(max-width:860px){.deck{width:calc(100% - 44px)}}
+
 /* sobre */
 .sobre{max-width:720px;display:grid;gap:18px;color:var(--muted);font-size:1.05rem}
 .sobre p:first-child{color:var(--txt)}
@@ -516,8 +530,8 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
       <div><span class="tag">// sites para clientes</span><h2>Sites que <span class="grad">criei</span></h2></div>
       <div class="car-ctrl"><button id="carPrev" aria-label="Anterior">←</button><button id="carNext" aria-label="Próximo">→</button></div>
     </div>
-    <div class="carousel reveal" id="carousel">
-      <article class="proj slide">
+    <div class="deck reveal" id="deck">
+      <article class="proj carta">
         <div class="thumb">
           <div class="barra"><i></i><i></i><i></i><em>isabella.imaguiar.com.br</em></div>
           <div class="tela rola"><iframe style="height:3200px" src="https://isabella.imaguiar.com.br/" title="Prévia de Site: Isabella Garcia | Estética" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
@@ -529,7 +543,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
           <div class="links"><a class="ver" href="https://isabella.imaguiar.com.br/" target="_blank" rel="noopener">Abrir ao vivo <span>↗</span></a><a class="ver ver2" href="https://github.com/Raiugami/isabella-garcia-estetica" target="_blank" rel="noopener">Código <span>↗</span></a></div>
         </div>
       </article>
-      <article class="proj slide">
+      <article class="proj carta">
         <div class="thumb">
           <div class="barra"><i></i><i></i><i></i><em>patricia.imaguiar.com.br</em></div>
           <div class="tela rola"><iframe style="height:3200px" src="https://patricia.imaguiar.com.br/" title="Prévia de Site: Harmonia das Orelhas" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
@@ -542,6 +556,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
         </div>
       </article>
     </div>
+    <p class="deck-dica reveal">Arraste a carta, use as setas ou toque nas bolinhas para ver o próximo site.</p>
     <div class="car-dots" id="carDots"></div>
   </div>
 </section>
@@ -677,22 +692,62 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
   }), { threshold: .25 });
   document.querySelectorAll("[data-demo]").forEach(el => ioDemo.observe(el));
 
-  // ====== carrossel de sites ======
+  // ====== baralho de sites ======
   (() => {
-    const car = document.getElementById("carousel"); if (!car) return;
-    const slides = [...car.children], dots = document.getElementById("carDots");
+    const deck = document.getElementById("deck"); if (!deck) return;
+    const cartas = [...deck.children], n = cartas.length, dots = document.getElementById("carDots");
     const prev = document.getElementById("carPrev"), next = document.getElementById("carNext");
-    slides.forEach((_, i) => { const d = document.createElement("i"); d.onclick = () => ir(i); dots.append(d); });
-    const passo = () => slides[0].offsetWidth + 24;
-    const idx = () => Math.round(car.scrollLeft / passo());
-    const ir = i => car.scrollTo({ left: Math.max(0, Math.min(slides.length - 1, i)) * passo() });
-    const atualiza = () => {
-      const i = idx(), max = car.scrollWidth - car.clientWidth - 2;
-      [...dots.children].forEach((d, k) => d.classList.toggle("on", k === i));
-      prev.disabled = car.scrollLeft <= 2; next.disabled = car.scrollLeft >= max;
+    let cur = 0, busy = false;
+    const lado = () => (deck.clientWidth < 360 ? 16 : 26);
+    cartas.forEach((_, i) => { const d = document.createElement("i"); d.onclick = () => ir(i); dots.append(d); });
+    const pos = d => {
+      if (d > 3) return "translate(" + 3 * lado() + "px,-30px) scale(.85)";
+      return "translate(" + d * lado() + "px," + (-d * 10) + "px) scale(" + (1 - d * .05) + ") rotate(" + d * 2.2 + "deg)";
     };
-    prev.onclick = () => ir(idx() - 1); next.onclick = () => ir(idx() + 1);
-    car.addEventListener("scroll", atualiza, { passive: true }); addEventListener("resize", atualiza); atualiza();
+    const aplica = () => {
+      cartas.forEach((c, i) => {
+        const d = (i - cur + n) % n;
+        c.classList.toggle("topo", d === 0);
+        c.style.zIndex = n - d; c.style.opacity = d > 3 ? 0 : 1; c.style.transform = pos(d);
+      });
+      [...dots.children].forEach((x, k) => x.classList.toggle("on", k === cur));
+      prev.disabled = next.disabled = n < 2;
+    };
+    const medida = () => {
+      cartas.forEach(c => c.style.minHeight = "");
+      const h = Math.max(...cartas.map(c => c.offsetHeight));
+      cartas.forEach(c => c.style.minHeight = h + "px"); deck.style.height = h + 24 + "px";
+    };
+    const sai = async (c, dir) => {
+      busy = true; c.style.transition = "transform .35s ease-in, opacity .35s";
+      c.style.transform = "translate(" + (dir * 130) + "%,-20px) rotate(" + (dir * 14) + "deg)"; c.style.opacity = 0;
+      await new Promise(r => setTimeout(r, 360));
+      c.style.transition = "none"; cur = (cur + (dir < 0 ? 1 : -1) + n) % n; aplica();
+      void c.offsetWidth; c.style.transition = ""; busy = false;
+    };
+    const ir = i => { if (busy || i === cur) return; cur = i; aplica(); };
+    const avanca = dir => {
+      if (busy || n < 2) return;
+      if (dir < 0) sai(cartas[cur], -1);
+      else { cur = (cur - 1 + n) % n; aplica(); }
+    };
+    next.onclick = () => avanca(-1); prev.onclick = () => avanca(1);
+    addEventListener("keydown", e => { if (e.key === "ArrowRight") avanca(-1); if (e.key === "ArrowLeft") avanca(1); });
+
+    let x0 = null, dx = 0, moveu = false;
+    deck.addEventListener("pointerdown", e => { const c = cartas[cur]; if (busy || !c.contains(e.target)) return; x0 = e.clientX; dx = 0; moveu = false; c.classList.add("arrasta"); c.setPointerCapture(e.pointerId); });
+    deck.addEventListener("pointermove", e => {
+      if (x0 === null) return; dx = e.clientX - x0; if (Math.abs(dx) > 6) moveu = true;
+      cartas[cur].style.transform = "translate(" + dx + "px,0) rotate(" + dx / 22 + "deg)";
+    });
+    const solta = () => {
+      if (x0 === null) return; const c = cartas[cur]; c.classList.remove("arrasta"); x0 = null;
+      if (dx < -70) sai(c, -1); else if (dx > 70) avanca(1); else c.style.transform = pos(0);
+    };
+    deck.addEventListener("pointerup", solta); deck.addEventListener("pointercancel", solta);
+    deck.addEventListener("click", e => { if (moveu) { e.preventDefault(); e.stopPropagation(); moveu = false; } }, true);
+    deck.addEventListener("dragstart", e => e.preventDefault());
+    aplica(); addEventListener("load", medida); addEventListener("resize", () => { medida(); aplica(); }); setTimeout(medida, 400);
   })();
 </script>
 </body>
