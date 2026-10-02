@@ -6,6 +6,7 @@
 <title>Gabriel Aguiar | Systems Engineer</title>
 <meta name="description" content="Gabriel Aguiar, Systems Engineer na Minsait. Java, Spring Boot, Oracle e PL/SQL, com projetos pessoais em JavaScript, TypeScript e Python.">
 <meta name="theme-color" content="#07070b">
+<script>(function(){try{var d=document.documentElement;if(matchMedia("(prefers-reduced-motion: reduce)").matches||sessionStorage.getItem("intro-visto")||location.hash)return;d.classList.add("intro-on")}catch(e){}})()</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307070b'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='%237c5cff'%3Eg.%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -57,6 +58,25 @@ nav a:hover{color:var(--txt)}
 .pausa{margin-top:14px;background:none;border:1px solid var(--line);color:var(--muted);border-radius:99px;padding:6px 16px;font:inherit;font-size:.82rem;cursor:pointer;transition:color .2s var(--ease),border-color .2s var(--ease)}
 .pausa:hover{color:var(--txt);border-color:var(--violet)}
 .menu{display:none;background:none;border:0;color:var(--txt);font-size:1.6rem;cursor:pointer}
+
+
+/* abertura: nome centralizado que viaja até o logo */
+#intro{position:fixed;inset:0;z-index:100;display:none;place-items:center;
+  background:radial-gradient(60vw 50vh at 85% -10%,rgba(124,92,255,.22),transparent 60%),radial-gradient(50vw 40vh at -5% 30%,rgba(34,211,238,.10),transparent 60%),var(--bg)}
+html.intro-on #intro{display:grid}
+html.intro-on{overflow:hidden}
+html.intro-on .logo{visibility:hidden}
+html.intro-on header .nav ul,html.intro-on header .nav>.btn,html.intro-on .menu{opacity:0}
+html.intro-on .dot{animation:none}
+html.intro-saiu header .nav ul,html.intro-saiu header .nav>.btn,html.intro-saiu .menu{animation:introFade .6s var(--ease) both}
+@keyframes introFade{from{opacity:0}to{opacity:1}}
+.intro-col{display:flex;flex-direction:column;align-items:center;gap:0}
+.intro-nome{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2.6rem,9.5vw,6.5rem);line-height:1.65;letter-spacing:0;white-space:nowrap;transform-origin:0 0;opacity:0;color:var(--txt)}
+.intro-nome span{color:var(--violet)}
+.intro-meta{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:-.4rem}
+.intro-bar{width:min(300px,60vw);height:3px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden}
+.intro-bar i{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left;background:var(--grad)}
+.intro-pct{font:500 .78rem 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.12em}
 
 /* hero */
 .hero{min-height:100svh;display:flex;align-items:center;padding:130px 0 80px}
@@ -407,6 +427,12 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
 </script>
 </head>
 <body>
+<div id="intro" aria-hidden="true">
+  <div class="intro-col">
+    <div class="intro-nome" id="introNome">gabriel<span>.</span>aguiar</div>
+    <div class="intro-meta" id="introMeta"><div class="intro-bar"><i id="introBar"></i></div><div class="intro-pct" id="introPct">carregando 0%</div></div>
+  </div>
+</div>
 <!--
   ============ COMO PERSONALIZAR ============
   1) CONTATO: troque EMAIL no <script> do final.
@@ -1014,6 +1040,50 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
       marcos.forEach(m => { if (!m.classList.contains("oculto")) m.classList.toggle("vivo", m.getBoundingClientRect().top - r.top + 26 < prog); });
     };
     addEventListener("scroll", atualiza, { passive: true }); addEventListener("resize", atualiza); atualiza();
+  })();
+
+  // ====== abertura: nome centralizado -> logo (FLIP) ======
+  (() => {
+    const d = document.documentElement; if (!d.classList.contains("intro-on")) return;
+    const ov = document.getElementById("intro"), nome = document.getElementById("introNome"), meta = document.getElementById("introMeta");
+    const bar = document.getElementById("introBar"), pct = document.getElementById("introPct");
+    let fim = false, indo = false, skip = false;
+    const finalizar = () => {
+      if (fim) return; fim = true;
+      d.classList.remove("intro-on"); d.classList.add("intro-saiu"); ov.remove();
+      try { sessionStorage.setItem("intro-visto", "1"); } catch (e) {}
+    };
+    ["click", "touchstart", "keydown"].forEach(ev => addEventListener(ev, () => { skip = true; }, { once: true }));
+    let pronto = false;
+    Promise.all([document.fonts ? document.fonts.ready : 0, new Promise(r => document.readyState === "complete" ? r() : addEventListener("load", r, { once: true }))]).then(() => { pronto = true; });
+    setTimeout(() => { pronto = true; }, 4000);
+
+    const mover = (rapido) => {
+      if (indo) return; indo = true;
+      nome.getAnimations().forEach(a => a.finish());
+      const a = nome.getBoundingClientRect(), b = document.querySelector(".logo").getBoundingClientRect();
+      const s = b.width / a.width, dx = b.left - a.left, dy = b.top - a.top;
+      meta.animate([{ opacity: 1 }, { opacity: 0 }], { duration: rapido ? 120 : 250, fill: "forwards" });
+      const t = rapido ? 450 : 950;
+      const mv = nome.animate([{ transform: "none", opacity: 1 }, { transform: `translate(${dx}px,${dy}px) scale(${s})`, opacity: 1 }],
+        { duration: t, delay: rapido ? 0 : 150, easing: "cubic-bezier(.76,0,.24,1)", fill: "forwards" });
+      ov.animate([{ opacity: 1 }, { opacity: 0 }], { duration: rapido ? 350 : 700, delay: rapido ? 100 : 400, easing: "ease", fill: "forwards" });
+      mv.onfinish = finalizar;
+    };
+
+    nome.animate([{ opacity: 0, transform: "translateY(14px)" }, { opacity: 1, transform: "none" }], { duration: 450, easing: "cubic-bezier(.22,1,.36,1)", fill: "forwards" });
+    const t0 = performance.now(), dur = 1400, ease = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+    const passo = now => {
+      if (indo) return;
+      const k = Math.min(1, (now - t0) / dur);
+      const p = Math.min(ease(k), pronto ? 1 : .92);
+      bar.style.transform = `scaleX(${p})`; pct.textContent = "carregando " + Math.round(p * 100) + "%";
+      if (skip) { mover(true); return; }
+      if (k >= 1 && pronto) { setTimeout(() => mover(skip), 120); return; }   // breve pausa em 100% antes de mover
+      requestAnimationFrame(passo);
+    };
+    requestAnimationFrame(passo);
+    setTimeout(() => { if (!fim) mover(true); }, 7000);   // rede de segurança
   })();
 </script>
 </body>
