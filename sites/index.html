@@ -56,6 +56,8 @@ a:focus-visible,button:focus-visible,video:focus-visible{outline:2px solid var(-
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
 .video{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#000;box-shadow:0 40px 80px -30px rgba(124,92,255,.5);max-width:340px;justify-self:end;width:100%;aspect-ratio:9/16}
 .video video{width:100%;height:100%;object-fit:cover;background:#000}
+.som{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);z-index:2;padding:10px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(7,7,11,.72);backdrop-filter:blur(8px);color:var(--txt);font:500 .88rem 'Inter',sans-serif;cursor:pointer;white-space:nowrap;transition:background-color .2s var(--ease),transform .15s var(--ease)}
+.som:hover{background:rgba(124,92,255,.5)}.som:active{transform:translateX(-50%) scale(.97)}
 
 /* sites criados */
 .exemplo{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;padding:40px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.01));margin-bottom:28px}
@@ -170,10 +172,11 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
       </div>
     </div>
     <div class="video">
-      <video controls playsinline preload="none" poster="video/poster.jpg" aria-label="Vídeo de apresentação do serviço de criação de sites">
+      <video id="vid" controls autoplay muted loop playsinline preload="auto" poster="video/poster.jpg" aria-label="Vídeo de apresentação do serviço de criação de sites">
         <source src="video/apresentacao.mp4" type="video/mp4">
         Seu navegador não reproduz vídeo. Veja os sites criados logo abaixo.
       </video>
+      <button class="som" id="somBtn" type="button" hidden>🔊 Ativar som</button>
     </div>
   </div>
 </section>
@@ -279,6 +282,23 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
   const hd = document.querySelector("header");
   const onScroll = () => hd.classList.toggle("solid", scrollY > 20);
   onScroll(); addEventListener("scroll", onScroll, { passive: true });
+
+  // vídeo: toca sozinho (mudo, como os navegadores exigem), pausa fora da tela e oferece o som
+  (() => {
+    const vid = document.getElementById("vid"), btn = document.getElementById("somBtn");
+    if (!vid) return;
+    const reduz = matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const mostra = () => { btn.hidden = !vid.muted || vid.paused; };
+    if (reduz) { vid.removeAttribute("autoplay"); vid.pause(); }
+    else {
+      new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) vid.play().catch(() => {}); else vid.pause();
+      }), { threshold: .4 }).observe(vid);
+    }
+    ["play", "pause", "volumechange"].forEach(ev => vid.addEventListener(ev, mostra));
+    btn.onclick = () => { vid.muted = false; vid.currentTime = 0; vid.play().catch(() => {}); };
+    mostra();
+  })();
 
   const io = new IntersectionObserver(es => es.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
