@@ -15,6 +15,10 @@ Projetos em destaque: Discordo (app de conversas com voz e vídeo), Organizaçã
 - Isabella Garcia | Estética: https://isabella.imaguiar.com.br/
 - Patrícia Lima | Harmonia das Orelhas: https://patricia.imaguiar.com.br/
 
+## Página /sites
+
+Página de divulgação do serviço de criação de sites (`imaguiar.com.br/sites`), com vídeo de apresentação vertical, os sites criados (Isabella e Patrícia), o que está incluso, como funciona e botão de orçamento pelo WhatsApp. Sem preço, de propósito. O número do WhatsApp fica na constante `WHATSAPP` no final de `sites/index.html`.
+
 ## Tecnologias
 
 - HTML5, CSS3 e JavaScript puros em um único arquivo, sem build e sem dependências
@@ -26,6 +30,10 @@ Projetos em destaque: Discordo (app de conversas com voz e vídeo), Organizaçã
 ```
 .
 ├── index.html   # página única (estilos e scripts embutidos)
+├── sites/       # página de divulgação do serviço de sites
+│   ├── index.html
+│   ├── img/     # mockups dos sites criados (WebP)
+│   └── video/   # apresentacao.mp4 (9:16) e poster.jpg
 ├── CNAME        # domínio imaguiar.com.br
 └── README.md
 ```
