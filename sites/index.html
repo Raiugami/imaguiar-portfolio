@@ -6,6 +6,7 @@
 <title>Criação de sites para profissionais e pequenos negócios | Gabriel Aguiar</title>
 <meta name="description" content="Sites profissionais para quem atende pelo WhatsApp e pelo Instagram: bonitos no celular, rápidos e prontos para aparecer no Google. Veja os sites criados e peça um orçamento sem compromisso.">
 <meta name="theme-color" content="#07070b">
+<script>(function(){try{var d=document.documentElement;if(matchMedia("(prefers-reduced-motion: reduce)").matches||sessionStorage.getItem("intro-sites-visto")||location.hash)return;d.classList.add("intro-on")}catch(e){}})()</script>
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307070b'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='%237c5cff'%3Eg.%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -45,6 +46,26 @@ nav a:hover{color:var(--txt)}
 .btn-line:hover{border-color:var(--violet);background:rgba(124,92,255,.12)}
 .btn:active{transform:scale(.97)}
 a:focus-visible,button:focus-visible,video:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
+
+
+/* abertura: frase de impacto + nome que viaja até o logo */
+#intro{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:0 24px;
+  background:radial-gradient(60vw 50vh at 85% -10%,rgba(124,92,255,.22),transparent 60%),radial-gradient(50vw 40vh at -5% 30%,rgba(34,211,238,.10),transparent 60%),var(--bg)}
+html.intro-on #intro{display:grid}
+html.intro-on{overflow:hidden}
+html.intro-on .logo{visibility:hidden}
+html.intro-on header .nav ul,html.intro-on header .nav>.btn{opacity:0}
+html.intro-saiu header .nav ul,html.intro-saiu header .nav>.btn{animation:introFade .6s var(--ease) both}
+@keyframes introFade{from{opacity:0}to{opacity:1}}
+.intro-col{display:flex;flex-direction:column;align-items:center;max-width:min(920px,100%)}
+.intro-frase{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2rem,6.4vw,4.6rem);line-height:1.08;letter-spacing:-.03em;text-align:center;margin-bottom:clamp(28px,5vw,48px)}
+.intro-frase span{display:block;opacity:0}
+.intro-nome{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.4rem,3.6vw,2.2rem);line-height:1.65;letter-spacing:0;white-space:nowrap;transform-origin:0 0;opacity:0;color:var(--txt)}
+.intro-nome span{color:var(--violet)}
+.intro-meta{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:-.2rem}
+.intro-bar{width:min(300px,60vw);height:3px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden}
+.intro-bar i{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left;background:var(--grad)}
+.intro-pct{font:500 .78rem 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.12em}
 
 /* hero */
 .hero{padding:140px 0 70px}
@@ -142,6 +163,13 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
 </script>
 </head>
 <body>
+<div id="intro" aria-hidden="true">
+  <div class="intro-col">
+    <div class="intro-frase" id="introFrase"><span>Seu cliente já está te procurando.</span><span class="grad">Seja encontrado.</span></div>
+    <div class="intro-nome" id="introNome">gabriel<span>.</span>aguiar</div>
+    <div class="intro-meta" id="introMeta"><div class="intro-bar"><i id="introBar"></i></div><div class="intro-pct" id="introPct">carregando 0%</div></div>
+  </div>
+</div>
 <!--
   ============ COMO PERSONALIZAR ============
   1) CONTATO: preencha WHATSAPP no <script> do final (DDI+DDD+número, só dígitos). Vazio, os botões abrem o e-mail.
@@ -289,11 +317,14 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
     if (!vid) return;
     const reduz = matchMedia("(prefers-reduced-motion: reduce)").matches;
     const mostra = () => { btn.hidden = !vid.muted || vid.paused; };
+    const emIntro = () => document.documentElement.classList.contains("intro-on");
     if (reduz) { vid.removeAttribute("autoplay"); vid.pause(); }
     else {
+      if (emIntro()) { vid.removeAttribute("autoplay"); vid.pause(); vid.currentTime = 0; }
       new IntersectionObserver(es => es.forEach(e => {
-        if (e.isIntersecting) vid.play().catch(() => {}); else vid.pause();
+        if (e.isIntersecting) { if (!emIntro()) vid.play().catch(() => {}); } else vid.pause();
       }), { threshold: .4 }).observe(vid);
+      addEventListener("intro-fim", () => { if (!reduz) vid.play().catch(() => {}); });
     }
     ["play", "pause", "volumechange"].forEach(ev => vid.addEventListener(ev, mostra));
     btn.onclick = () => { vid.muted = false; vid.currentTime = 0; vid.play().catch(() => {}); };
@@ -304,6 +335,56 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
     if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); }
   }), { threshold: .12 });
   document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  // ====== abertura: frase de impacto + nome -> logo (FLIP) ======
+  (() => {
+    const d = document.documentElement; if (!d.classList.contains("intro-on")) return;
+    const ov = document.getElementById("intro"), nome = document.getElementById("introNome"), meta = document.getElementById("introMeta");
+    const frase = document.getElementById("introFrase"), bar = document.getElementById("introBar"), pct = document.getElementById("introPct");
+    let fim = false, indo = false, skip = false;
+    const finalizar = () => {
+      if (fim) return; fim = true;
+      d.classList.remove("intro-on"); d.classList.add("intro-saiu"); ov.remove();
+      try { sessionStorage.setItem("intro-sites-visto", "1"); } catch (e) {}
+      dispatchEvent(new Event("intro-fim"));
+    };
+    ["click", "touchstart", "keydown"].forEach(ev => addEventListener(ev, () => { skip = true; }, { once: true }));
+    let pronto = false;
+    Promise.all([document.fonts ? document.fonts.ready : 0, new Promise(r => document.readyState === "complete" ? r() : addEventListener("load", r, { once: true }))]).then(() => { pronto = true; });
+    setTimeout(() => { pronto = true; }, 4500);
+
+    const mover = (rapido) => {
+      if (indo) return; indo = true;
+      nome.getAnimations().forEach(a => a.finish());
+      const a = nome.getBoundingClientRect(), b = document.querySelector(".logo").getBoundingClientRect();
+      const s = b.width / a.width, dx = b.left - a.left, dy = b.top - a.top;
+      meta.animate([{ opacity: 1 }, { opacity: 0 }], { duration: rapido ? 120 : 250, fill: "forwards" });
+      frase.animate([{ opacity: 1, transform: "none" }, { opacity: 0, transform: "translateY(-26px) scale(.98)" }], { duration: rapido ? 200 : 480, easing: "cubic-bezier(.22,1,.36,1)", fill: "forwards" });
+      const mv = nome.animate([{ transform: "none", opacity: 1 }, { transform: `translate(${dx}px,${dy}px) scale(${s})`, opacity: 1 }],
+        { duration: rapido ? 450 : 950, delay: rapido ? 0 : 250, easing: "cubic-bezier(.76,0,.24,1)", fill: "forwards" });
+      ov.animate([{ opacity: 1 }, { opacity: 0 }], { duration: rapido ? 350 : 700, delay: rapido ? 100 : 500, easing: "ease", fill: "forwards" });
+      mv.onfinish = finalizar;
+    };
+
+    const linhas = [...frase.children];
+    linhas[0].animate([{ opacity: 0, transform: "translateY(18px)" }, { opacity: 1, transform: "none" }], { duration: 550, delay: 150, easing: "cubic-bezier(.22,1,.36,1)", fill: "forwards" });
+    linhas[1].animate([{ opacity: 0, transform: "translateY(18px)" }, { opacity: 1, transform: "none" }], { duration: 550, delay: 700, easing: "cubic-bezier(.22,1,.36,1)", fill: "forwards" });
+    nome.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 500, delay: 1100, fill: "forwards" });
+    meta.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 400, delay: 900, fill: "forwards" });
+
+    const t0 = performance.now(), dur = 2300, ease = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
+    const passo = now => {
+      if (indo) return;
+      const k = Math.min(1, (now - t0) / dur);
+      const p = Math.min(ease(k), pronto ? 1 : .92);
+      bar.style.transform = `scaleX(${p})`; pct.textContent = "carregando " + Math.round(p * 100) + "%";
+      if (skip) { mover(true); return; }
+      if (k >= 1 && pronto) { setTimeout(() => mover(skip), 250); return; }
+      requestAnimationFrame(passo);
+    };
+    requestAnimationFrame(passo);
+    setTimeout(() => { if (!fim) mover(true); }, 8000);
+  })();
 </script>
 </body>
 </html>
