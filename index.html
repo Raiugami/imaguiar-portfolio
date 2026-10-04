@@ -54,7 +54,7 @@ nav a:hover{color:var(--txt)}
 .btn-line:hover{border-color:var(--violet);background:rgba(124,92,255,.12)}
 .btn:active,.car-ctrl button:active,.tl-filtros button:active{transform:scale(.97)}
 .pausa-fora,.pausa-fora *,.pausa-fora *::before,.pausa-fora *::after,html[data-pausa] *,html[data-pausa] *::before,html[data-pausa] *::after{animation-play-state:paused!important}
-.carta:not(.topo) .rola iframe{animation-play-state:paused}
+.carta:not(.topo) .rola iframe,.carta:not(.topo) .rola img{animation-play-state:paused}
 .pausa{margin-top:14px;background:none;border:1px solid var(--line);color:var(--muted);border-radius:99px;padding:6px 16px;font:inherit;font-size:.82rem;cursor:pointer;transition:color .2s var(--ease),border-color .2s var(--ease)}
 .pausa:hover{color:var(--txt);border-color:var(--violet)}
 .menu{display:none;background:none;border:0;color:var(--txt);font-size:1.6rem;cursor:pointer}
@@ -155,6 +155,8 @@ html.intro-saiu header .nav ul,html.intro-saiu header .nav>.btn,html.intro-saiu 
 .demo small{opacity:.65;font-size:.9em}
 .demo b{font-weight:600}
 .rola iframe{animation:rolar 28s ease-in-out infinite alternate}
+.tela img{position:absolute;top:0;left:0;width:100%;height:auto;max-width:none;animation:rolarImg 32s ease-in-out infinite alternate;will-change:transform}
+@keyframes rolarImg{from{transform:translateY(0)}to{transform:translateY(-62%)}}
 @keyframes rolar{from{transform:translateY(0) scale(var(--s,.45))}to{transform:translateY(-1500px) scale(var(--s,.45))}}
 /* financeiro */
 .fin{background:#111827;padding:14px 16px;display:grid;grid-template-rows:auto 1fr auto;gap:10px}
@@ -216,7 +218,7 @@ html.intro-saiu header .nav ul,html.intro-saiu header .nav>.btn,html.intro-saiu 
   .dc{grid-template-columns:44px 1fr}.dc-chan,.dc-voice{display:none}
   .proj .dc-thumb{height:300px}
 }
-@media(prefers-reduced-motion:reduce){.rola iframe{animation:none}.dc-code span{animation:none;transform:scaleX(.68)}}
+@media(prefers-reduced-motion:reduce){.rola iframe,.tela img{animation:none}.dc-code span{animation:none;transform:scaleX(.68)}}
 
 
 /* numeros */
@@ -726,7 +728,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
       <article class="proj carta">
         <div class="thumb">
           <div class="barra"><i></i><i></i><i></i><em>isabella.imaguiar.com.br</em></div>
-          <div class="tela rola"><iframe style="height:3200px" src="https://isabella.imaguiar.com.br/" title="Prévia de Site: Isabella Garcia | Estética" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+          <div class="tela rola"><img src="sites/img/prev-isabella.webp" width="1000" height="2343" loading="lazy" decoding="async" alt="Prévia rolando do site Isabella Garcia | Estética"></div>
         </div>
         <div class="info">
           <h3>Site: Isabella Garcia | Estética</h3>
@@ -738,7 +740,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
       <article class="proj carta">
         <div class="thumb">
           <div class="barra"><i></i><i></i><i></i><em>patricia.imaguiar.com.br</em></div>
-          <div class="tela rola"><iframe style="height:3200px" src="https://patricia.imaguiar.com.br/" title="Prévia de Site: Harmonia das Orelhas" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+          <div class="tela rola"><img src="sites/img/prev-patricia.webp" width="1000" height="2343" loading="lazy" decoding="async" alt="Prévia rolando do site Harmonia das Orelhas"></div>
         </div>
         <div class="info">
           <h3>Site: Harmonia das Orelhas</h3>
@@ -750,7 +752,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
       <article class="proj carta">
         <div class="thumb">
           <div class="barra"><i></i><i></i><i></i><em>artesmundocriar.imaguiar.com.br</em></div>
-          <div class="tela rola"><iframe style="height:3200px" src="https://artesmundocriar.imaguiar.com.br/" title="Prévia de Site: Artes Mamãe Mundo Criar" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+          <div class="tela rola"><img src="sites/img/prev-mundocriar.webp" width="1000" height="2343" loading="lazy" decoding="async" alt="Prévia rolando do site Artes Mamãe Mundo Criar"></div>
         </div>
         <div class="info">
           <h3>Site: Artes Mamãe Mundo Criar</h3>
@@ -762,7 +764,7 @@ footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem
       <article class="proj carta">
         <div class="thumb">
           <div class="barra"><i></i><i></i><i></i><em>franciscobernuzzi.com.br</em></div>
-          <div class="tela rola"><iframe style="height:3200px" src="https://franciscobernuzzi.com.br/" title="Prévia de Site: Francisco Bernuzzi | Advocacia" loading="lazy" tabindex="-1" scrolling="no"></iframe></div>
+          <div class="tela rola"><img src="sites/img/prev-bernuzzi.webp" width="1000" height="2343" loading="lazy" decoding="async" alt="Prévia rolando do site Francisco Bernuzzi | Advocacia"></div>
         </div>
         <div class="info">
           <h3>Site: Francisco Bernuzzi | Advocacia</h3>
