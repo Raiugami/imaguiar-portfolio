@@ -11,13 +11,15 @@ Portfólio pessoal do **Gabriel Aguiar**, Systems Engineer na Minsait (Java, Ora
 
 Página única (one-page), com visual escuro e moderno, responsiva. Seções: apresentação, números, sobre, experiência (linha do tempo e formação), stack, inteligência artificial, projetos e contato.
 
-Projetos em destaque: Discordo (app de conversas com voz e vídeo), Organização financeira, Relatório de protocolos, Meus dias e dois sites feitos para clientes, em carrossel:
+Projetos em destaque: Discordo (app de conversas com voz e vídeo), Organização financeira, Relatório de protocolos, Meus dias e quatro sites feitos para clientes, em baralho de cartas:
 - Isabella Garcia | Estética: https://isabella.imaguiar.com.br/
 - Patrícia Lima | Harmonia das Orelhas: https://patricia.imaguiar.com.br/
+- Artes Mamãe Mundo Criar (papelaria): https://artesmundocriar.imaguiar.com.br/
+- Francisco Bernuzzi (advocacia): https://franciscobernuzzi.com.br/
 
 ## Página /sites
 
-Página de divulgação do serviço de criação de sites (`imaguiar.com.br/sites`), com vídeo de apresentação vertical, os sites criados (Isabella e Patrícia), o que está incluso, como funciona e botão de orçamento pelo WhatsApp. Sem preço, de propósito. O número do WhatsApp fica na constante `WHATSAPP` no final de `sites/index.html`.
+Página de divulgação do serviço de criação de sites (`imaguiar.com.br/sites`), com vídeo de apresentação vertical, os sites criados (Isabella, Patrícia, Mamãe Mundo Criar e Francisco Bernuzzi), o que está incluso, como funciona e botão de orçamento pelo WhatsApp. Sem preço, de propósito. O número do WhatsApp fica na constante `WHATSAPP` no final de `sites/index.html`.
 
 ## Tecnologias
 
