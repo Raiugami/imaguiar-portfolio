@@ -3,54 +3,61 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Criação de sites para profissionais e pequenos negócios | Gabriel Aguiar</title>
+<title>Criação de sites para profissionais e pequenos negócios | IM Aguiar</title>
 <meta name="description" content="Sites profissionais para quem atende pelo WhatsApp e pelo Instagram: bonitos no celular, rápidos e prontos para aparecer no Google. Veja os sites criados e peça um orçamento sem compromisso.">
-<meta name="theme-color" content="#07070b">
+<meta name="theme-color" content="#0B0B0B">
 <script>(function(){try{var d=document.documentElement;if(matchMedia("(prefers-reduced-motion: reduce)").matches||sessionStorage.getItem("intro-sites-visto")||location.hash)return;d.classList.add("intro-on")}catch(e){}})()</script>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%2307070b'/%3E%3Ctext x='32' y='43' font-family='Arial' font-weight='700' font-size='30' text-anchor='middle' fill='%237c5cff'%3Eg.%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230B0B0B'/%3E%3Ctext x='32' y='43' font-family='Georgia,serif' font-weight='700' font-size='30' text-anchor='middle' fill='%23C9A96A'%3EIM%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#07070b; --bg2:#0d0d14; --card:#11111a; --line:rgba(255,255,255,.08);
-  --txt:#ececf3; --muted:#9a9ab0; --violet:#7c5cff; --cyan:#22d3ee;
-  --grad:linear-gradient(120deg,#7c5cff,#22d3ee);
-  --raio:18px; --ease:cubic-bezier(.22,1,.36,1);
+  --preto:#0B0B0B; --preto2:#141412; --creme:#EADFCF; --creme2:#F3ECE0; --branco:#FFFFFF;
+  --ouro:#C9A96A; --ouro-esc:#7d6128; --cinza:#8E8E8E; --txt-claro:#d9d3c8; --muted:#a9a49a; --muted-claro:#5e584e;
+  --line:rgba(234,223,207,.14); --line-claro:rgba(11,11,11,.12);
+  --raio:16px; --ease:cubic-bezier(.22,1,.36,1);
 }
 *{box-sizing:border-box;margin:0;padding:0}
 @media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
-body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--txt);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-body::before{content:"";position:fixed;inset:0;z-index:-2;background:radial-gradient(60vw 50vh at 85% -10%,rgba(124,92,255,.22),transparent 60%),radial-gradient(50vw 40vh at -5% 30%,rgba(34,211,238,.10),transparent 60%)}
-body::after{content:"";position:fixed;inset:0;z-index:-1;opacity:.5;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse at 50% 0%,#000 0%,transparent 70%);mask-image:radial-gradient(ellipse at 50% 0%,#000 0%,transparent 70%)}
+body{font-family:'Inter',sans-serif;background:var(--preto);color:var(--creme);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 a{color:inherit;text-decoration:none}
 img,video{display:block;max-width:100%;height:auto}
 .wrap{width:min(1100px,100% - 40px);margin-inline:auto}
-section{padding:90px 0}
-h1,h2,h3{font-family:'Space Grotesk',sans-serif;line-height:1.1;letter-spacing:-.02em}
-h2{font-size:clamp(2rem,4.5vw,3rem);margin-bottom:14px}
-.tag{font-family:'JetBrains Mono',monospace;font-size:.78rem;color:var(--cyan);letter-spacing:.08em;text-transform:uppercase;display:block;margin-bottom:14px}
+section{padding:96px 0}
+h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500;line-height:1.12;letter-spacing:-.01em}
+h2{font-size:clamp(2rem,4.4vw,2.9rem);margin-bottom:14px}
+.tag{font:500 .74rem 'Inter',sans-serif;color:var(--ouro);letter-spacing:.22em;text-transform:uppercase;display:block;margin-bottom:16px}
 .sub{color:var(--muted);max-width:640px;margin-bottom:44px}
-.grad{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ouro{color:var(--ouro)}
+.claro{background:var(--creme);color:var(--preto)}
+.claro .tag{color:var(--ouro-esc)}
+.claro .sub{color:var(--muted-claro)}
+.claro .ouro{color:var(--ouro-esc)}
+
+/* logo IM + AGUIAR (provisório, recriado em texto) */
+.lg{display:inline-flex;align-items:center;gap:.7em;line-height:1}
+.lg b{font-family:'Playfair Display',serif;font-weight:600;font-size:1.9em;letter-spacing:-.03em;color:var(--creme)}
+.lg i{font:500 .62em 'Inter',sans-serif;font-style:normal;letter-spacing:.42em;color:var(--creme);padding-left:.7em;border-left:1px solid var(--ouro)}
+.logo{font-size:.85rem}
 
 header{position:fixed;inset:0 0 auto 0;z-index:50;transition:background-color .3s var(--ease),border-color .3s var(--ease)}
-header.solid{background:rgba(7,7,11,.75);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:16px}
-.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.25rem}.logo span{color:var(--violet)}
-nav ul{display:flex;gap:28px;list-style:none;font-size:.92rem;color:var(--muted)}
-nav a:hover{color:var(--txt)}
-.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:999px;font-weight:500;font-size:.95rem;cursor:pointer;border:1px solid transparent;transition:transform .22s var(--ease),box-shadow .22s var(--ease),background-color .22s var(--ease),border-color .22s var(--ease)}
-.btn-main{background:var(--grad);color:#07070b;box-shadow:0 10px 40px -10px rgba(124,92,255,.7)}
-.btn-main:hover{transform:translateY(-3px);box-shadow:0 16px 44px -10px rgba(34,211,238,.6)}
-.btn-line{border-color:var(--line);background:rgba(255,255,255,.03)}
-.btn-line:hover{border-color:var(--violet);background:rgba(124,92,255,.12)}
+header.solid{background:rgba(11,11,11,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:72px;gap:16px}
+nav ul{display:flex;gap:30px;list-style:none;font-size:.9rem;color:var(--muted)}
+nav a:hover{color:var(--creme)}
+.btn{display:inline-flex;align-items:center;gap:10px;padding:13px 26px;border-radius:10px;font-weight:500;font-size:.93rem;cursor:pointer;border:1px solid transparent;transition:transform .22s var(--ease),box-shadow .22s var(--ease),background-color .22s var(--ease),border-color .22s var(--ease)}
+.btn-main{background:var(--ouro);color:var(--preto)}
+.btn-main:hover{transform:translateY(-3px);box-shadow:0 14px 34px -14px rgba(201,169,106,.8);background:#d4b77c}
+.btn-line{border-color:rgba(234,223,207,.35);color:var(--creme)}
+.btn-line:hover{border-color:var(--ouro);color:var(--ouro)}
+.claro .btn-line{border-color:rgba(11,11,11,.35);color:var(--preto)}
+.claro .btn-line:hover{border-color:var(--ouro-esc);color:var(--ouro-esc)}
 .btn:active{transform:scale(.97)}
-a:focus-visible,button:focus-visible,video:focus-visible{outline:2px solid var(--cyan);outline-offset:3px;border-radius:8px}
+a:focus-visible,button:focus-visible,video:focus-visible{outline:2px solid var(--ouro);outline-offset:3px;border-radius:8px}
 
-
-/* abertura: frase de impacto + nome que viaja até o logo */
-#intro{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:0 24px;
-  background:radial-gradient(60vw 50vh at 85% -10%,rgba(124,92,255,.22),transparent 60%),radial-gradient(50vw 40vh at -5% 30%,rgba(34,211,238,.10),transparent 60%),var(--bg)}
+/* abertura */
+#intro{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:0 24px;background:radial-gradient(60vw 50vh at 80% 0%,rgba(201,169,106,.12),transparent 60%),var(--preto)}
 html.intro-on #intro{display:grid}
 html.intro-on{overflow:hidden}
 html.intro-on .logo{visibility:hidden}
@@ -58,66 +65,67 @@ html.intro-on header .nav ul,html.intro-on header .nav>.btn{opacity:0}
 html.intro-saiu header .nav ul,html.intro-saiu header .nav>.btn{animation:introFade .6s var(--ease) both}
 @keyframes introFade{from{opacity:0}to{opacity:1}}
 .intro-col{display:flex;flex-direction:column;align-items:center;max-width:min(920px,100%)}
-.intro-frase{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(2rem,6.4vw,4.6rem);line-height:1.08;letter-spacing:-.03em;text-align:center;margin-bottom:clamp(28px,5vw,48px)}
+.intro-frase{font-family:'Playfair Display',serif;font-weight:500;font-size:clamp(2rem,6vw,4.2rem);line-height:1.1;text-align:center;margin-bottom:clamp(28px,5vw,48px)}
 .intro-frase span{display:block;opacity:0}
-.intro-nome{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(1.4rem,3.6vw,2.2rem);line-height:1.65;letter-spacing:0;white-space:nowrap;transform-origin:0 0;opacity:0;color:var(--txt)}
-.intro-nome span{color:var(--violet)}
+.intro-nome{font-size:clamp(.9rem,2.2vw,1.35rem);white-space:nowrap;transform-origin:0 0;opacity:0;line-height:1.65}
 .intro-meta{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:-.2rem}
-.intro-bar{width:min(300px,60vw);height:3px;border-radius:3px;background:rgba(255,255,255,.1);overflow:hidden}
-.intro-bar i{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left;background:var(--grad)}
-.intro-pct{font:500 .78rem 'JetBrains Mono',monospace;color:var(--muted);letter-spacing:.12em}
+.intro-bar{width:min(300px,60vw);height:2px;background:rgba(234,223,207,.15);overflow:hidden}
+.intro-bar i{display:block;height:100%;width:100%;transform:scaleX(0);transform-origin:left;background:var(--ouro)}
+.intro-pct{font:500 .72rem 'Inter',sans-serif;color:var(--muted);letter-spacing:.22em;text-transform:uppercase}
 
 /* hero */
-.hero{padding:140px 0 70px}
-.pill{display:inline-flex;align-items:center;gap:10px;padding:7px 16px;border:1px solid var(--line);border-radius:999px;background:rgba(255,255,255,.03);font-size:.82rem;color:var(--muted);margin-bottom:24px}
-.dot{width:8px;height:8px;border-radius:50%;background:#34d399}
-.hero h1{font-size:clamp(2.4rem,6.4vw,4.6rem);max-width:15ch;margin-bottom:22px}
-.hero p.lead{color:var(--muted);font-size:1.12rem;max-width:560px;margin-bottom:34px}
-.acoes{display:flex;flex-wrap:wrap;gap:14px}
+.hero{padding:140px 0 84px;background:radial-gradient(70vw 60vh at 85% 10%,rgba(201,169,106,.10),transparent 60%),var(--preto)}
 .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}
-.video{position:relative;border-radius:22px;overflow:hidden;border:1px solid var(--line);background:#000;box-shadow:0 40px 80px -30px rgba(124,92,255,.5);max-width:340px;justify-self:end;width:100%;aspect-ratio:9/16}
+.hero h1{font-size:clamp(2.5rem,6vw,4.4rem);max-width:13ch;margin-bottom:22px}
+.hero p.lead{color:var(--txt-claro);font-size:1.1rem;max-width:520px;margin-bottom:34px}
+.acoes{display:flex;flex-wrap:wrap;gap:14px}
+.nums{display:flex;flex-wrap:wrap;gap:36px;margin-top:46px;padding-top:28px;border-top:1px solid var(--line)}
+.nums div{font-family:'Playfair Display',serif;font-size:1.9rem;line-height:1.1}
+.nums span{display:block;font:400 .78rem 'Inter',sans-serif;color:var(--muted);margin-top:6px}
+.video{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--line);background:#000;box-shadow:0 40px 80px -30px rgba(0,0,0,.9);max-width:340px;justify-self:end;width:100%;aspect-ratio:9/16}
 .video video{width:100%;height:100%;object-fit:cover;background:#000}
-.som{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);z-index:2;padding:10px 20px;border-radius:999px;border:1px solid rgba(255,255,255,.25);background:rgba(7,7,11,.72);backdrop-filter:blur(8px);color:var(--txt);font:500 .88rem 'Inter',sans-serif;cursor:pointer;white-space:nowrap;transition:background-color .2s var(--ease),transform .15s var(--ease)}
-.som:hover{background:rgba(124,92,255,.5)}.som:active{transform:translateX(-50%) scale(.97)}
+.som{position:absolute;left:50%;bottom:64px;transform:translateX(-50%);z-index:2;padding:10px 20px;border-radius:999px;border:1px solid rgba(234,223,207,.3);background:rgba(11,11,11,.75);backdrop-filter:blur(8px);color:var(--creme);font:500 .88rem 'Inter',sans-serif;cursor:pointer;white-space:nowrap;transition:background-color .2s var(--ease),transform .15s var(--ease)}
+.som:hover{background:rgba(201,169,106,.4)}.som:active{transform:translateX(-50%) scale(.97)}
 
-/* sites criados */
-.exemplo{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;padding:40px;border:1px solid var(--line);border-radius:28px;background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.01));margin-bottom:28px}
+/* sites criados (escuro) */
+.exemplo{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;padding:40px;border:1px solid var(--line);border-radius:22px;background:var(--preto2);margin-bottom:28px}
 .exemplo:nth-of-type(even){grid-template-columns:1.1fr .9fr}
 .exemplo:nth-of-type(even) .txt{order:2}
-.txt h3{font-size:1.7rem;margin-bottom:6px}
-.txt .area{color:var(--cyan);font:500 .78rem 'JetBrains Mono',monospace;letter-spacing:.06em;text-transform:uppercase;margin-bottom:14px;display:block}
-.txt p{color:var(--muted);margin-bottom:18px}
+.txt h3{font-size:1.8rem;margin-bottom:6px}
+.txt .area{color:var(--ouro);font:500 .74rem 'Inter',sans-serif;letter-spacing:.18em;text-transform:uppercase;margin-bottom:14px;display:block}
+.txt p{color:var(--txt-claro);margin-bottom:18px}
 .chips{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-.chips span{font:400 .72rem 'JetBrains Mono',monospace;color:var(--cyan);padding:4px 10px;border-radius:6px;background:rgba(34,211,238,.08)}
+.chips span{font:400 .74rem 'Inter',sans-serif;color:var(--creme);padding:4px 12px;border-radius:999px;border:1px solid var(--line)}
 .visual{position:relative;padding:0 0 28px}
-.laptop{border:8px solid #1b1b26;border-bottom-width:12px;border-radius:14px 14px 4px 4px;background:#000;overflow:hidden;box-shadow:0 30px 60px -28px rgba(0,0,0,.9)}
+.laptop{border:8px solid #26241f;border-bottom-width:12px;border-radius:14px 14px 4px 4px;background:#000;overflow:hidden;box-shadow:0 30px 60px -28px rgba(0,0,0,.9)}
 .laptop img{width:100%;aspect-ratio:1000/625;object-fit:cover;object-position:top}
-.phone{position:absolute;right:-6px;bottom:0;width:30%;border:6px solid #1b1b26;border-radius:22px;background:#000;overflow:hidden;box-shadow:0 24px 50px -20px rgba(0,0,0,.9)}
+.phone{position:absolute;right:-6px;bottom:0;width:30%;border:6px solid #26241f;border-radius:22px;background:#000;overflow:hidden;box-shadow:0 24px 50px -20px rgba(0,0,0,.9)}
 .phone img{width:100%;aspect-ratio:520/1125;object-fit:cover;object-position:top}
 .exemplo:nth-of-type(even) .phone{right:auto;left:-6px}
 
-/* incluso */
+/* incluso (creme) */
 .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{padding:28px;border:1px solid var(--line);border-radius:var(--raio);background:linear-gradient(160deg,rgba(255,255,255,.04),rgba(255,255,255,.01));transition:transform .3s var(--ease),border-color .3s var(--ease)}
-.card:hover{border-color:rgba(124,92,255,.45);transform:translateY(-4px)}
-.ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:rgba(124,92,255,.14);color:var(--violet);margin-bottom:18px;font-size:1.3rem}
-.card h3{font-size:1.15rem;margin-bottom:8px}.card p{color:var(--muted);font-size:.93rem}
+.card{padding:28px;border:1px solid var(--line-claro);border-radius:var(--raio);background:var(--branco);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.card:hover{transform:translateY(-4px);box-shadow:0 22px 40px -26px rgba(11,11,11,.4)}
+.ico{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:var(--creme);color:var(--ouro-esc);margin-bottom:18px;font-size:1.3rem}
+.card h3{font-size:1.2rem;margin-bottom:8px}.card p{color:var(--muted-claro);font-size:.93rem}
 
-/* passos */
+/* passos (creme claro) */
+.claro2{background:var(--creme2)}
 .passos{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:p}
-.passo{padding:26px 22px;border-left:1px solid var(--line)}
-.passo::before{counter-increment:p;content:"0" counter(p);font:500 .85rem 'JetBrains Mono',monospace;color:var(--violet);display:block;margin-bottom:12px}
-.passo h3{font-size:1.1rem;margin-bottom:6px}.passo p{color:var(--muted);font-size:.92rem}
+.passo{padding:6px 22px 6px 0}
+.passo::before{counter-increment:p;content:"0" counter(p);display:grid;place-items:center;width:38px;height:38px;border-radius:50%;background:var(--ouro);color:var(--preto);font:600 .85rem 'Inter',sans-serif;margin-bottom:16px}
+.passo h3{font-size:1.2rem;margin-bottom:6px}.passo p{color:var(--muted-claro);font-size:.92rem}
 
 /* cta */
-.cta{border:1px solid var(--line);border-radius:28px;padding:clamp(34px,6vw,70px);text-align:center;position:relative;overflow:hidden;background:var(--bg2)}
-.cta::before{content:"";position:absolute;inset:-40% 10% auto;height:300px;background:radial-gradient(closest-side,rgba(124,92,255,.35),transparent);filter:blur(30px)}
-.cta>*{position:relative}
-.cta p{color:var(--muted);max-width:520px;margin:0 auto 30px}
+.cta{text-align:center;position:relative;overflow:hidden;padding:clamp(34px,6vw,64px) 0}
+.cta p{color:var(--txt-claro);max-width:520px;margin:0 auto 30px}
 .cta .acoes{justify-content:center}
+.cta .lg{font-size:1rem;margin-top:44px}
 .nota{margin-top:22px;font-size:.84rem;color:var(--muted)}
-footer{padding:36px 0 50px;text-align:center;color:var(--muted);font-size:.84rem;border-top:1px solid var(--line)}
-footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
+.nota a{text-decoration:underline;text-underline-offset:3px;color:var(--creme)}
+footer{padding:30px 0 44px;text-align:center;color:var(--muted);font-size:.84rem;border-top:1px solid var(--line)}
+footer a{color:var(--creme);text-decoration:underline;text-underline-offset:3px}
 
 .reveal{opacity:0;transform:translateY(12px);transition:opacity .48s var(--ease),transform .48s var(--ease)}
 .reveal.in{opacity:1;transform:none}
@@ -130,16 +138,18 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
   .nav>.btn{padding:9px 16px;font-size:.82rem;line-height:1.2;white-space:nowrap;flex:none}
   .exemplo{padding:24px;gap:28px}
   section{padding:64px 0}
+  .nums{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .nums div{font-size:1.5rem}
 }
-@media(max-width:380px){.nav{gap:10px}.nav>.btn{padding:8px 12px;font-size:.78rem}}
+@media(max-width:380px){.nav{gap:10px}.nav>.btn{padding:8px 12px;font-size:.78rem}.logo{font-size:.74rem}}
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 <link rel="canonical" href="https://imaguiar.com.br/sites/">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:site_name" content="Gabriel Aguiar">
-<meta property="og:title" content="Criação de sites para profissionais e pequenos negócios | Gabriel Aguiar">
+<meta property="og:site_name" content="IM Aguiar">
+<meta property="og:title" content="Criação de sites para profissionais e pequenos negócios | IM Aguiar">
 <meta property="og:description" content="Sites profissionais para quem atende pelo WhatsApp e pelo Instagram: bonitos no celular, rápidos e prontos para aparecer no Google. Peça um orçamento sem compromisso.">
 <meta property="og:url" content="https://imaguiar.com.br/sites/">
 <meta property="og:image" content="https://imaguiar.com.br/sites/og-sites.png">
@@ -147,7 +157,7 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
 <meta property="og:image:height" content="630">
 <meta property="og:image:alt" content="Página de criação de sites de Gabriel Aguiar, com exemplos de sites criados">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Criação de sites para profissionais e pequenos negócios | Gabriel Aguiar">
+<meta name="twitter:title" content="Criação de sites para profissionais e pequenos negócios | IM Aguiar">
 <meta name="twitter:description" content="Sites profissionais para quem atende pelo WhatsApp e pelo Instagram: bonitos no celular, rápidos e prontos para aparecer no Google.">
 <meta name="twitter:image" content="https://imaguiar.com.br/sites/og-sites.png">
 <script type="application/ld+json">
@@ -155,7 +165,7 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   "@id": "https://imaguiar.com.br/sites/#servico",
-  "name": "Criação de sites | Gabriel Aguiar",
+  "name": "IM Aguiar | Criação de sites",
   "url": "https://imaguiar.com.br/sites/",
   "description": "Criação de sites de uma página para profissionais autônomos e pequenos negócios, com botão de agendamento pelo WhatsApp ou Instagram, layout para celular e computador e publicação com HTTPS.",
   "serviceType": "Criação de sites",
@@ -167,8 +177,8 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
 <body>
 <div id="intro" aria-hidden="true">
   <div class="intro-col">
-    <div class="intro-frase" id="introFrase"><span>Seu cliente já está te procurando.</span><span class="grad">Seja encontrado.</span></div>
-    <div class="intro-nome" id="introNome">gabriel<span>.</span>aguiar</div>
+    <div class="intro-frase" id="introFrase"><span>Seu cliente já está te procurando.</span><span class="ouro">Seja encontrado.</span></div>
+    <div class="intro-nome" id="introNome"><span class="lg"><b>IM</b><i>AGUIAR</i></span></div>
     <div class="intro-meta" id="introMeta"><div class="intro-bar"><i id="introBar"></i></div><div class="intro-pct" id="introPct">carregando 0%</div></div>
   </div>
 </div>
@@ -179,9 +189,9 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
 -->
 <header id="top">
   <div class="wrap nav">
-    <a href="/" class="logo">gabriel<span>.</span>aguiar</a>
+    <a href="/" class="logo" aria-label="IM Aguiar, início"><span class="lg"><b>IM</b><i>AGUIAR</i></span></a>
     <nav><ul>
-      <li><a href="#sites">Sites criados</a></li>
+      <li><a href="#sites">Portfólio</a></li>
       <li><a href="#incluso">O que está incluso</a></li>
       <li><a href="#como">Como funciona</a></li>
     </ul></nav>
@@ -193,12 +203,17 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <div class="pill"><span class="dot"></span> Criação de sites · uma página, do seu jeito</div>
-      <h1>Seu negócio com um site que <span class="grad">traz clientes</span>.</h1>
-      <p class="lead">Sites profissionais para quem atende pelo WhatsApp e pelo Instagram: bonitos no celular, rápidos e prontos para aparecer no Google.</p>
+      <span class="tag">Sites profissionais para negócios reais</span>
+      <h1>Seu negócio merece um site à altura.</h1>
+      <p class="lead">Sites de uma página para quem atende pelo WhatsApp e pelo Instagram: bonitos no celular, rápidos e prontos para aparecer no Google.</p>
       <div class="acoes">
-        <a class="btn btn-main js-orcamento" href="#contato">Pedir orçamento →</a>
-        <a class="btn btn-line" href="#sites">Ver sites criados</a>
+        <a class="btn btn-main js-orcamento" href="#contato">Quero meu site →</a>
+        <a class="btn btn-line" href="#sites">Ver portfólio</a>
+      </div>
+      <div class="nums">
+        <div>4<span>Sites no ar</span></div>
+        <div>5 dias<span>Para entregar, depois da aprovação</span></div>
+        <div>2<span>Rodadas de ajustes</span></div>
       </div>
     </div>
     <div class="video">
@@ -213,8 +228,8 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
 
 <section id="sites">
   <div class="wrap">
-    <span class="tag reveal">// sites criados</span>
-    <h2>Sites que já <span class="grad">estão no ar</span></h2>
+    <span class="tag reveal">Portfólio</span>
+    <h2>Sites que <span class="ouro">já estão no ar</span></h2>
     <p class="sub">Exemplos de sites feitos sob medida, cada um com a identidade da marca. Clique para visitar.</p>
 
     <article class="exemplo reveal">
@@ -275,10 +290,10 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
   </div>
 </section>
 
-<section id="incluso">
+<section id="incluso" class="claro">
   <div class="wrap">
-    <span class="tag reveal">// o que está incluso</span>
-    <h2>Tudo para você <span class="grad">entrar no ar</span></h2>
+    <span class="tag reveal">Soluções completas</span>
+    <h2>Tudo para você <span class="ouro">entrar no ar</span></h2>
     <p class="sub">Do layout à publicação, sem você precisar entender de tecnologia.</p>
     <div class="grid3">
       <div class="card reveal"><div class="ico">◧</div><h3>Visual da sua marca</h3><p>Cores e estilo baseados no seu Instagram e na sua identidade, pensados primeiro para o celular.</p></div>
@@ -291,10 +306,10 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
   </div>
 </section>
 
-<section id="como">
+<section id="como" class="claro claro2">
   <div class="wrap">
-    <span class="tag reveal">// como funciona</span>
-    <h2>Do primeiro contato ao <span class="grad">site no ar</span></h2>
+    <span class="tag reveal">Como funciona</span>
+    <h2>Um processo simples, <span class="ouro">claro e eficiente</span></h2>
     <p class="sub">Um processo curto e claro, com entrega em até 5 dias úteis depois da aprovação.</p>
     <div class="passos">
       <div class="passo reveal"><h3>Conversa</h3><p>Você me conta o que faz e envia fotos e o WhatsApp para agendamentos.</p></div>
@@ -308,19 +323,20 @@ footer a{color:var(--txt);text-decoration:underline;text-underline-offset:3px}
 <section id="contato">
   <div class="wrap">
     <div class="cta reveal">
-      <span class="tag">// contato</span>
-      <h2>Vamos colocar o seu <span class="grad">negócio no ar?</span></h2>
-      <p>Me chame para um orçamento sem compromisso. Respondo com uma proposta clara, com o que está incluso e o prazo.</p>
+      <span class="tag">Contato</span>
+      <h2>Vamos criar algo <span class="ouro">incrível juntos?</span></h2>
+      <p>Fale sobre o seu projeto e receba uma proposta clara, com o que está incluso e o prazo, sem compromisso.</p>
       <div class="acoes">
-        <a class="btn btn-main js-orcamento" href="#">Pedir orçamento</a>
+        <a class="btn btn-main js-orcamento" href="#">Falar no WhatsApp →</a>
       </div>
-      <p class="nota">Gabriel Aguiar · Systems Engineer · <a href="/" style="text-decoration:underline">ver portfólio completo</a></p>
+      <p class="nota">Gabriel Aguiar · Systems Engineer · <a href="/">ver portfólio completo</a></p>
+      <span class="lg"><b>IM</b><i>AGUIAR</i></span>
     </div>
   </div>
 </section>
 </main>
 
-<footer><div class="wrap">© <span id="year"></span> Gabriel Aguiar · <a href="/">imaguiar.com.br</a></div></footer>
+<footer><div class="wrap">© <span id="year"></span> IM Aguiar · Gabriel Aguiar · <a href="/">imaguiar.com.br</a></div></footer>
 
 <script>
   // ====== CONFIGURE AQUI ======
