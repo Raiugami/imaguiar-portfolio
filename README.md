@@ -19,12 +19,12 @@ Projetos em destaque: Discordo (app de conversas com voz e vídeo), Organizaçã
 
 ## Página /sites
 
-Página de divulgação do serviço de criação de sites (`imaguiar.com.br/sites`), com vídeo de apresentação vertical, os sites criados (Isabella, Patrícia, Mamãe Mundo Criar e Francisco Bernuzzi), o que está incluso, como funciona e botão de orçamento pelo WhatsApp. Sem preço, de propósito. O número do WhatsApp fica na constante `WHATSAPP` no final de `sites/index.html`.
+Página de divulgação do serviço, com a identidade visual IM Aguiar (preto, creme, dourado; Playfair Display e Inter), de criação de sites (`imaguiar.com.br/sites`), com vídeo de apresentação vertical, os sites criados (Isabella, Patrícia, Mamãe Mundo Criar e Francisco Bernuzzi), o que está incluso, como funciona e botão de orçamento pelo WhatsApp. Sem preço, de propósito. O número do WhatsApp fica na constante `WHATSAPP` no final de `sites/index.html`.
 
 ## Tecnologias
 
 - HTML5, CSS3 e JavaScript puros em um único arquivo, sem build e sem dependências
-- Google Fonts: Inter, Space Grotesk e JetBrains Mono
+- Google Fonts: Inter, Space Grotesk e JetBrains Mono (página principal); Inter e Playfair Display (página /sites, identidade IM Aguiar)
 - Hospedagem: GitHub Pages, com domínio próprio (`CNAME`)
 
 ## Estrutura de pastas
